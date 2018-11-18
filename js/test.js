@@ -30,7 +30,9 @@ function preload () {
     this.load.image('dude', 'assets/dude.png');
     this.load.image('dude1', 'assets/dude1.png');
     this.load.image('platform', 'assets/platform.png');
-    this.load.image('box', 'assets/diamond.png');
+    this.load.image('box0', 'assets/box0.png');
+    this.load.image('box1', 'assets/box1.png');
+    this.load.image('box2', 'assets/box1.png');
     this.load.image('sky', 'assets/sky.png');
 }
 
@@ -77,14 +79,14 @@ function timeForHighfive() {
 
 function hitBox0() {
     if (activePlayerIsHitting()) {
-        window.open('/games/wampmp/wammp.html');
+        window.open('/games/wammp/wammp.html');
         console.log('yey!');
     }
 }
 
 function activePlayerIsHitting() {
     return !switched && player1.body.touching.up
-        || switched && player1.body.touching.up
+        || switched && player1.body.touching.up;
 }
 
 function hitBox1() {
@@ -141,9 +143,9 @@ function createBoxes(game) {
         let box = game.add.tileSprite(
             windowWidth*0.25*i,
             windowHeight*0.5,
-            64,
-            56,
-            'box',
+            50,
+            50,
+            'box' + (i-1),
         );
         game.physics.add.existing(box, true);
         boxes.push(box);
