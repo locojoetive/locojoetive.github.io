@@ -1,9 +1,9 @@
 {
 "companyName": "FroBros",
 "productName": "Home",
-"dataUrl": "target.data.unityweb",
-"wasmCodeUrl": "target.wasm.code.unityweb",
-"wasmFrameworkUrl": "target.wasm.framework.unityweb",
+"dataUrl": "FroBrosBuild.data.unityweb",
+"wasmCodeUrl": "FroBrosBuild.wasm.code.unityweb",
+"wasmFrameworkUrl": "FroBrosBuild.wasm.framework.unityweb",
 "TOTAL_MEMORY": 268435456,
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
