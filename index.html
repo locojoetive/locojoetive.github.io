@@ -3,23 +3,39 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Fro Bros Home</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/target.json", {onProgress: UnityProgress});
-    </script>
+    <title>Resume</title>
+    <link rel="shortcut icon" href="favicon.jpg">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Fro Bros Home</div>
+    <header class="nav-down">
+      <div id="header-items">
+        <button id="default-button" class="tab-link" onclick="openTab('games', this)">
+          <h1>Games</h1>
+        </button>
+        <button class="tab-link" onclick="openTab('about', this)">
+          <h1>About</h1>
+        </button>
+        <button class="tab-link" onclick="openTab('cv', this)">
+          <h1>CV</h1>
+        </button>
       </div>
-    </div>
+      <div id="header-underline"></div>
+    </header>
+    <main>
+      <div id="games" class="tab-content">
+        Some Games
+      </div>
+      <div id="about" class="tab-content">
+        Some Info
+      </div>
+      <div id="cv" class="tab-content">
+        Some More Info
+      </div>
+    </main>
+    <footer></footer>
+    <script src="js/dist/jquery-3.6.0.min.js"></script>
+    <script src="js/scrolling.js"></script>
+    <script src="js/onClick.js"></script>
   </body>
 </html>
