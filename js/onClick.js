@@ -1,18 +1,33 @@
 function openTab(tabName, elmnt) {
     console.log(tabName);
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName('tab-content');
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = 'none';
+    var i, tablinks;
+    
+    if (tabName === 'about') {
+      document.body.scrollIntoView(
+        {
+          behavior: 'smooth',
+          block:    'start'
+        }
+      );
     }
+    else {
+      document.getElementById(tabName).scrollIntoView(
+        {
+          behavior: 'smooth',
+          block:    'start'
+        }
+      );
+    }
+
     tablinks = document.getElementsByClassName('tab-link');
     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = '#000000';
-      tablinks[i].style.color = '#ffffff';
+      tablinks[i].style.backgroundColor = '#1a1d45';
+      tablinks[i].style.color = '#b8b8b8';
     }
-    document.getElementById(tabName).style.display = "block";
-    elmnt.style.backgroundColor = '#afff01';
-    elmnt.style.color = '#000000';
+    elmnt.style.backgroundColor = '#b8b8b8';
+    elmnt.style.color = '#1a1d45';
 }
 
-document.getElementById("default-button").click();
+var defaultButton = document.getElementById("default-button")
+defaultButton.style.backgroundColor = '#b8b8b8';
+defaultButton.style.color = '#1a1d45';;

@@ -1,59 +1,29 @@
 body {
     padding: 0;
-    padding-top: 40px;    
     margin: 0;
     width: 100%;
     height: 100%;
-    color: #afff01;
-    background: #000000;
+    color: #b8b8b8;
+    background: #1a1d45;
+    font-family: 'Roboto Mono';
+}
+
+p {
+    padding: 10vh 3vh;
+    font-size: medium;
+}
+
+a {
+    color: #e26e00;
 }
 
 header {
+    height: 10vh;
     top: 0;
     width: 100%;
-    background: #000000;
+    background: #1a1d45;
     position: fixed;
     transition: top 0.2s ease-in-out;
-}
-
-main {
-    padding-top: 40px;
-    font-size: xx-large;
-    height: 2000px;
-}
-
-.tab-link {
-    background-color: #000000;
-    color: #ffffff;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    width: 25%;
-    transition: 0.2s ease-in-out;
-}
-
-.tab-link:hover {
-    background-color: #afff01;
-    color: #000000;
-    transition: 0.2s ease-in-out;
-}
-
-.tab-content {
-    color: #ffffff;
-    display: none;
-    padding: 50px;
-    text-align: center;
-    transition: 0.2s ease-in-out;
-}
-
-.nav-up {
-    top: -80px;
-}
-
-.nav-down {
-    top: 0px;
 }
 
 #header-items {
@@ -66,5 +36,106 @@ main {
 #header-underline {
     height: 1vh;
     width: 100%;
-    background-color: #afff01;
+    background-color: #b8b8b8;
+}
+
+.nav-up {
+    top: -11vh;
+}
+
+.nav-down {
+    top: 0;
+}
+
+main {
+    margin-top: 10vh;
+    font-size: xx-large;
+    height: 2000px;
+}
+
+.tab-link {
+    background-color: #1a1d45;
+    color: #b8b8b8;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 25%;
+    transition: 0.2s ease-in-out;
+}
+
+.tab-link:hover {
+    background-color: #b8b8b8;
+    color: #1a1d45;
+    transition: 0.2s ease-in-out;
+}
+
+#about {
+    height: 100vh;
+    color: #b8b8b8;
+}
+
+.iframe-placeholder {
+    height: 10vh;
+    width: 20%;
+    background-color: #c00909;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.iframe-placeholder:hover {
+    background-color: #0949c0;
+    color: #000000;
+    transition: 0.2s ease-in-out;
+}
+
+.image-center {
+    display: block;
+    margin: 0 auto;
+}
+
+#cv {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+}
+
+#person-details {
+    display: flex;
+}
+
+.person-details {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.person-details-element {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#person-skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.person-skills {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.person-experience {
+    margin: 1vh auto;
+}
+
+.person-experience > .date-and-place, .description{
+    font-size: small;
+}
+
+.person-experience > .date-and-place {
+    color: #797676;
 }
