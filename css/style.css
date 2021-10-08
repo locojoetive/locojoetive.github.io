@@ -99,11 +99,6 @@ main {
     transition: 0.2s ease-in-out;
 }
 
-.image-center {
-    display: block;
-    margin: 0 auto;
-}
-
 .person-details {
     display: flex;
     flex-direction: column;
@@ -194,13 +189,13 @@ main {
     padding: 5vh 0;
 }
 
-.person-details-item > .icon {
-    padding-right: 10px;
+.games > div {
+    display: flex;
+    justify-content: center;
 }
 
-.icon > a {
-    display: block;
-    height: 32px;
+.person-details-item > .icon {
+    padding-right: 10px;
 }
 
 
