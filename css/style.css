@@ -8,6 +8,10 @@ body {
     font-family: 'Roboto Mono';
 }
 
+h2 {
+    margin: 0;
+}
+
 div {
     border-width: 2px;
 }
@@ -16,15 +20,20 @@ ul {
     padding: 0 5vw;
 }
 
-button > h2 {
-    margin: 0;
+button {
+    font-family: 'Roboto Mono';
+    font-weight: bolder;
 }
 
-#about, #games {
-    padding: 5vh 3vh;
+#about {
+    padding: 3vh 3vw;
     border-bottom-style: solid;
 }
 
+#games {
+    padding: 0 3vh 5vh;
+    border-bottom-style: solid;
+}
 
 #cv {
     padding: 0 3vh;
@@ -119,7 +128,7 @@ main {
 
 .person-skills {
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 50% 50%;
     row-gap: 2vh;
     padding: 5vh 0;
     align-items: center;
@@ -132,8 +141,6 @@ main {
 }
 
 .person-skills > .icon > img {
-    max-width: 15%;
-    height: auto;
     padding: 0 1vw;
 }
 
@@ -166,12 +173,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-}
-
-#image-me {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
 }
 
 .person-experience-institution {
@@ -210,7 +211,33 @@ main {
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1200px) {
+
+    body {
+        font-size: 2vh;
+    }
+    
+    h2 {
+        font-size: 3vh;
+    }
+
+    .icon > img,
+    .icon > a > img {
+        height: auto;
+        width: 6vw;
+    }
+
+    #image-me {
+        height: auto;
+        width: 30vw;
+        border-radius: 50%;
+    }
+    
+    .games > div > a > img {
+        height: auto;
+        width: 50vw;
+    }
+
     #person-skills {
         flex-direction: column;
     }
@@ -223,7 +250,38 @@ main {
     }
 }
 
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 1201px) {
+
+    body {
+        font-size: 3vh;
+    }
+    
+    h2 {
+        font-size: 3vh;
+    }
+    
+    #person-name {
+        font-size: 5vh;
+    }
+
+    .icon > img,
+    .icon > a > img {
+        height: auto;
+        width: 4vw;
+    }
+    
+    #image-me {
+        height: auto;
+        width: 20vw;
+        border-radius: 50%;
+    }
+
+    
+    .games > div > a > img {
+        height: auto;
+        width: 30vw;
+    }
+
     #person-skills {
         flex-direction: row;
     }
