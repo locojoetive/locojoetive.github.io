@@ -25,8 +25,13 @@ button {
     font-weight: bolder;
 }
 
+img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
 #about {
-    padding: 3vh 3vw;
     border-bottom-style: solid;
 }
 
@@ -146,8 +151,7 @@ main {
 
 
 .person-experience {
-    margin: 5vh 0;
-    padding-bottom: 5vh;
+    padding: 5vh;
 }
 
 .person-experience > .description {
@@ -211,7 +215,6 @@ main {
 
 
 @media screen and (max-width: 1200px) {
-
     body {
         font-size: 2vh;
     }
@@ -253,8 +256,7 @@ main {
     }
 }
 
-@media screen and (min-width: 1201px) {
-
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
     body {
         font-size: 3vh;
     }
@@ -267,33 +269,40 @@ main {
         font-size: 5vh;
     }
 
+    .games > div > a > img {
+        height: auto;
+        width: 30vw;
+    }
+    
+    .icon > img,
+    .icon > a > img {
+        height: auto;
+        width: 2vw;
+    }
+    
+    #about {
+        padding: 3vh 3vw;
+    }
+
     #image-me {
         height: auto;
         width: 20vw;
         border-radius: 50%;
     }
+}
 
-    .icon > img,
-    .icon > a > img {
-        height: auto;
-        width: 4vw;
-    }
-    
+@media screen and (min-width: 1201px) {
     .person-details {
         flex-direction: row;
     }
     
-    .games > div > a > img {
-        height: auto;
-        width: 30vw;
-    }
-
     #person-skills {
         flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .person-skills {
-        width: 50%;
+        min-width: 50%;
         border-bottom-style: solid;
         border-top-style: solid;
     }
@@ -301,11 +310,67 @@ main {
     .person-skills:first-child {
         border-right-style: solid;
         border-right-width: 1px;
-        padding-right: 5vw;
     }
     .person-skills:last-child {
         border-left-style: solid;
         border-left-width: 1px;
-        padding-left: 5vw;
+    }
+}
+
+
+@media screen and (min-width: 1401px) {
+    body {
+        font-size: 2vh;
+    }
+    
+    h2 {
+        font-size: 2vh;
+    }
+    
+    #person-name {
+        font-size: 5vh;
+    }
+
+    .games > div > a > img {
+        height: auto;
+        width: 20vw;
+    }
+
+    .icon > img,
+    .icon > a > img,
+    .person-skills > .icon > img {
+        width: 3vw;
+    }
+
+    #about, #games, #cv {
+        padding: 3vh 20vw;
+    }
+
+    
+    #person-experience {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        grid-auto-flow: column;
+    }
+
+    .person-experience {
+        min-width: 50%;
+    }
+
+    .edu {
+        border-right-style: solid;
+        border-right-width: 1px;
+    }
+    
+    .job {
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+
+    #image-me {
+        height: auto;
+        width: 15vw;
+        border-radius: 50%;
     }
 }
