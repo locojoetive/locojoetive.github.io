@@ -130,17 +130,18 @@ main {
     align-items: center;
 }
 
+.person-skills > .icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .person-skills > .icon > img {
     max-width: 15%;
     height: auto;
     padding: 0 1vw;
 }
 
-.person-skills > .icon {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 
 
 .person-experience {
@@ -161,7 +162,7 @@ main {
 
 #person-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 2vh 0;
 }
 
