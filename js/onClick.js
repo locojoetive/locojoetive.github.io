@@ -93,3 +93,20 @@ function hasScrolled() {
 window.addEventListener("scroll", (event) => {
   hasScrolled();
 });
+
+function removeOverlay() {
+  document.getElementById('overlay').style.display = "none";  
+  window.removeEventListener('scroll', noScroll);
+}
+
+const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+console.log(device);
+if(device) {
+  function noScroll() {
+    window.scrollTo(0, 0);
+  }  
+  window.scrollTo(0, 0);
+  window.addEventListener('scroll', noScroll);
+} else {
+  removeOverlay();
+}

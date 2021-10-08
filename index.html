@@ -9,6 +9,25 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <div id="overlay">
+      <div class="panel">
+        <div class="panel-text">
+          <p>Since you are using a mobile device, I highly recommend you to play my in-browser game Paper Fighter! It's simple, it's short, and it's fun! :) (All my other games can only be played using a keyboard!)</p>
+        </div>
+        <div class="panel-buttons">
+          <a onclick="removeOverlay()" href="https://frobros.itch.io/paper-fighter" target="_blank">
+            <h2>
+              Yes Please!
+            </h2>
+          </a>
+          <a onclick="removeOverlay()">
+            <h2>
+              Maybe later
+            </h2>
+          </a>
+        </div>
+      </div>
+    </div>
     <header id="header" class="nav-down">
       <div id="header-button-container">
         <button id="about-button" class="header-button" onclick="openTab('about-container', this)">
