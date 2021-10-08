@@ -8,6 +8,10 @@ body {
     font-family: 'Roboto Mono';
 }
 
+div {
+    border-width: 2px;
+}
+
 ul {
     padding: 0 5vw;
 }
@@ -16,13 +20,14 @@ button > h2 {
     margin: 0;
 }
 
-#about, #games, #cv {
+#about, #games {
     padding: 5vh 3vh;
     border-bottom-style: solid;
 }
 
 
 #cv {
+    padding: 0 3vh;
     display: flex;
     flex-direction: column;
 }
@@ -38,6 +43,7 @@ header {
     background: #1a1d45;
     position: fixed;
     transition: top 0.2s ease-in-out;
+    border-bottom-style: solid;
 }
 
 #header-items {
@@ -45,12 +51,6 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-}
-
-#header-underline {
-    height: 1vh;
-    width: 100%;
-    background-color: #b8b8b8;
 }
 
 .nav-up {
@@ -183,8 +183,7 @@ main {
     align-items: center;
 }
 
-.person-experience, 
-.person-skills,
+.person-experience,
 .games {
     border-bottom-style: solid;
 }
@@ -219,6 +218,13 @@ main {
     #person-skills {
         flex-direction: column;
     }
+    
+    .person-skills {
+        border-top-style: solid;
+    }
+    .person-skills:last-child {
+        border-bottom-style: solid;
+    }
 }
 
 @media screen and (min-width: 501px) {
@@ -228,14 +234,18 @@ main {
 
     .person-skills {
         width: 50%;
+        border-bottom-style: solid;
+        border-top-style: solid;
     }
 
     .person-skills:first-child {
         border-right-style: solid;
+        border-right-width: 1px;
         padding-right: 5vw;
     }
     .person-skills:last-child {
-        border-top-style: solid;
+        border-left-style: solid;
+        border-left-width: 1px;
         padding-left: 5vw;
     }
 }
