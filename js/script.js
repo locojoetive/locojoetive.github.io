@@ -100,7 +100,6 @@ function removeOverlay() {
 }
 
 const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-console.log(device);
 if(device) {
   function noScroll() {
     window.scrollTo(0, 0);
