@@ -1,65 +1,92 @@
-const defaultButton = document.getElementById("default-button")
-defaultButton.style.backgroundColor = '#b8b8b8';
-defaultButton.style.color = '#1a1d45';
-
-let lastScrollTop = 0;
-const delta = 0;
-const navbarHeight = $('header').outerHeight();
+function activateHeaderButton(element)
+{
+  const tablinks = document.getElementsByClassName('header-button');
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = '#1a1d45';
+    tablinks[i].style.color = '#b8b8b8';
+  }
+  element.style.backgroundColor = '#b8b8b8';
+  element.style.color = '#1a1d45';
+}
 
 function openTab(tabName, elmnt) {
-    if (tabName === 'about') {
-      window.scroll(
-        {
-          top: 0,
-          behavior: 'smooth'
-        }
-      );
-    }
-    else {
-      const currentPos = $(this).scrollTop();
-      let goalPos  = document.getElementById(tabName).offsetTop;
-      console.log("FROM: " + currentPos);
-      console.log("TO: " + goalPos);
-      
-      if (currentPos - goalPos > 0)
+  // activate right header button
+  activateHeaderButton(elmnt);
+
+  // scroll to the top
+  if (tabName === 'about') {
+    window.scroll(
       {
-        const headerHeight = $('header').outerHeight();
-        console.log("Scroll up! " + headerHeight);
-        goalPos = goalPos - headerHeight - 3;
+        top: 0,
+        behavior: 'smooth'
       }
-      else
+    );
+  }
+  // scroll to respective section
+  else {
+    const currentPos = document.documentElement.scrollTop;
+    let goalPos  = document.getElementById(tabName).offsetTop;
+    // has to scroll up
+    if (currentPos - goalPos > 0)
+    {
+      const headerHeight = headerElement.offsetHeight;
+      goalPos = goalPos - headerHeight - 3;
+    }
+    // has to scroll down
+    else {}
+
+    // scroll to goalPos
+    window.scroll(
       {
-        console.log("Scroll down!");
+        top: goalPos,
+        behavior: 'smooth'
       }
-      window.scroll(
-        {
-          top: goalPos,
-          behavior: 'smooth'
-        }
-      );
-    }
-    let i, tablinks;
-    tablinks = document.getElementsByClassName('tab-link');
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = '#1a1d45';
-      tablinks[i].style.color = '#b8b8b8';
-    }
-    elmnt.style.backgroundColor = '#b8b8b8';
-    elmnt.style.color = '#1a1d45';
+    );
+  }
 }
 
 function hasScrolled() {
-    var scrollTop = $(this).scrollTop();
-    if(Math.abs(lastScrollTop - scrollTop) <= delta)
-        return;
-    if (scrollTop > lastScrollTop && scrollTop > 10){
-        $('header').removeClass('nav-down').addClass('nav-up');
-    } else if (scrollTop + $(window).height() < $(document).height()) {
-        $('header').removeClass('nav-up').addClass('nav-down');
+    // hide header on scroll down
+    const currentPos = document.documentElement.scrollTop;
+    const headerElement = document.getElementsByTagName('HEADER')[0];
+    if(Math.abs(lastPos - currentPos) <= delta)
+      return;
+    if (currentPos > lastPos && currentPos > headerElement.offsetHeight){
+      headerElement.classList.remove('nav-down');
+      headerElement.classList.add('nav-up');
+    } else // if (currentPos + window.innerHeight < document.offsetHeight)
+    {
+      headerElement.classList.remove('nav-up');
+      headerElement.classList.add('nav-down');
     }
-    lastScrollTop = scrollTop;
+    lastPos = currentPos;
+
+    // activate right header button
+    const gamesYPos = gamesContainer.offsetTop;
+    const cvYPos = cvContainer.offsetTop;
+    if (currentPos > cvYPos)
+      activateHeaderButton(cvButton);
+    else if (currentPos > gamesYPos)
+      activateHeaderButton(gamesButton);
+    else
+      activateHeaderButton(aboutButton);
+    
 }
 
-$(window).scroll((event) => {
+window.addEventListener("scroll", (event) => {
   hasScrolled();
 });
+
+
+const aboutContainer = document.getElementById('about');
+const gamesContainer = document.getElementById('games');
+const cvContainer = document.getElementById('cv');
+
+let lastPos = 0;
+const delta = 0;
+
+const aboutButton = document.getElementById('about-button');
+const gamesButton = document.getElementById('games-button');
+const cvButton = document.getElementById('cv-button');
+
+activateHeaderButton(aboutButton);

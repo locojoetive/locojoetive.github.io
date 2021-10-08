@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <header class="nav-down">
+    <header id="header" class="nav-down">
       <div id="header-items">
-        <button id="default-button" class="tab-link" onclick="openTab('about', this)">
+        <button id="about-button" class="header-button" onclick="openTab('about', this)">
           <h2>About</h2>
         </button>
-        <button class="tab-link" onclick="openTab('games', this)">
+        <button id="games-button" class="header-button" onclick="openTab('games', this)">
           <h2>Games</h2>
         </button>
-        <button class="tab-link" onclick="openTab('cv', this)">
+        <button id="cv-button" class="header-button" onclick="openTab('cv', this)">
           <h2>CV</h2>
         </button>
       </div>
@@ -554,7 +554,6 @@
       </div>
     </main>
     <footer></footer>
-    <script src="js/dist/jquery-3.6.0.min.js"></script>
     <script src="js/onClick.js"></script>
   </body>
 </html>

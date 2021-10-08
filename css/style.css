@@ -11,6 +11,10 @@ body {
 ul {
     padding: 0 5vw;
 }
+
+button > h2 {
+    margin: 0;
+}
 /*
 p {
     font-size: medium;
@@ -73,7 +77,7 @@ main {
     height: 2000px;
 }
 
-.tab-link {
+.header-button {
     background-color: #1a1d45;
     color: #b8b8b8;
     float: left;
@@ -84,7 +88,7 @@ main {
     transition: 0.2s ease-in-out;
 }
 
-.tab-link:hover {
+.header-button:hover {
     background-color: #b8b8b8;
     color: #1a1d45;
     transition: 0.2s ease-in-out;
