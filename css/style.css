@@ -120,7 +120,6 @@ main {
 
 #person-skills {
     display: flex;
-    flex-direction: column;
 }
 
 .person-skills {
@@ -128,7 +127,7 @@ main {
     grid-template-columns: 100px auto;
     row-gap: 2vh;
     padding: 5vh 0;
-    justify-content: space-between;
+    align-items: center;
 }
 
 .person-skills > .icon > img {
@@ -215,16 +214,28 @@ main {
     font-size: larger;
 }
 
-/*
-@media screen and (min-width: 371px) {
-    body {
-        font-size: large;
+
+@media screen and (max-width: 500px) {
+    #person-skills {
+        flex-direction: column;
     }
 }
 
-@media screen and (max-width: 370px) {
-    body {
-        font-size: medium;
+@media screen and (min-width: 501px) {
+    #person-skills {
+        flex-direction: row;
+    }
+
+    .person-skills {
+        width: 50%;
+    }
+
+    .person-skills:first-child {
+        border-right-style: solid;
+        padding-right: 5vw;
+    }
+    .person-skills:last-child {
+        border-top-style: solid;
+        padding-left: 5vw;
     }
 }
-*/
