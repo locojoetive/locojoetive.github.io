@@ -62,8 +62,9 @@ function hasScrolled() {
     lastPos = currentPos;
 
     // activate right header button
-    const gamesYPos = gamesContainer.offsetTop;
-    const cvYPos = cvContainer.offsetTop;
+    const halfWindowHeight = 0.5 * window.innerHeight;
+    const gamesYPos = gamesContainer.offsetTop - halfWindowHeight;
+    const cvYPos = cvContainer.offsetTop - halfWindowHeight;
     if (currentPos > cvYPos)
       activateHeaderButton(cvButton);
     else if (currentPos > gamesYPos)
