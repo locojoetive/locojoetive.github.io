@@ -15,11 +15,6 @@ ul {
 button > h2 {
     margin: 0;
 }
-/*
-p {
-    font-size: medium;
-}
-*/
 
 #about, #games, #cv {
     padding: 5vh 3vh;
@@ -30,9 +25,6 @@ p {
 #cv {
     display: flex;
     flex-direction: column;
-    /*
-    font-size: medium;
-    */
 }
 
 a {
@@ -71,9 +63,6 @@ header {
 
 main {
     margin-top: 10vh;
-    /*
-    font-size: xx-large;
-    */
     height: 2000px;
 }
 
@@ -119,9 +108,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /*
-    font-size: small;
-    */
 }
 
 .person-details-item {
@@ -169,12 +155,6 @@ main {
 }
 
 
-/*
-.person-experience > .date-and-place, .description{
-    font-size: small;
-}
-*/
-
 .person-experience > .date-and-place {
     color: #797676;
 }
@@ -192,12 +172,6 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
 }
-
-/*
-#person-name {
-    font-size: x-large;
-}
-*/
 
 #image-me {
     height: 100px;
@@ -230,11 +204,6 @@ main {
     height: 32px;
 }
 
-/*
-.person-skills > .icon {
-    text-align: right;
-}
-*/
 
 .person-experience-institution > .icon {
     display: flex;
