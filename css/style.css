@@ -1,83 +1,76 @@
-body {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    color: #b8b8b8;
-    background: #1a1d45;
-    font-family: 'Roboto Mono';
-}
-
-h2 {
-    margin: 0;
-}
-
-div {
-    border-width: 2px;
-}
-
-ul {
-    padding: 0 5vw;
-}
-
-button {
-    font-family: 'Roboto Mono';
-    font-weight: bolder;
-}
-
-img {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-}
-
-#about {
+#about-container {
     border-bottom-style: solid;
 }
 
-#games {
-    padding: 0 3vh 5vh;
-    border-bottom-style: solid;
-}
-
-#cv {
+#cv-container {
     padding: 0 3vh;
     display: flex;
     flex-direction: column;
 }
 
-a {
-    color: #e26e00;
-}
-
-header {
-    height: 10vh;
-    top: 0;
-    width: 100%;
-    background: #1a1d45;
-    position: fixed;
-    transition: top 0.2s ease-in-out;
+#games-container {
+    padding: 0 3vh 5vh;
     border-bottom-style: solid;
 }
 
-#header-items {
+#header-button-container {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.nav-up {
-    top: -11vh;
+#person-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2vh 0;
 }
 
-.nav-down {
-    top: 0;
+#person-job {
+    font-size: 3vh;
 }
 
-main {
-    margin-top: 10vh;
-    height: 2000px;
+#person-name {
+    font-size: 5vh;
+}
+
+#person-skills-container {
+    display: flex;
+}
+
+
+.games > div {
+    display: flex;
+    justify-content: center;
+}
+
+
+.person-contact-item > .icon {
+    padding-right: 10px;
+}
+
+.person-experience-institution > .icon {
+    display: flex;
+    align-content: center;
+    padding: 0 10px;
+}
+
+.person-experience > .date-and-place {
+    color: #797676;
+}
+
+.person-experience > .description {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.person-experience,
+.games {
+    border-bottom-style: solid;
+}
+
+.games {
+    padding: 5vh 0;
 }
 
 .header-button {
@@ -97,28 +90,20 @@ main {
     transition: 0.2s ease-in-out;
 }
 
-.iframe-placeholder {
-    height: 10vh;
-    width: 20%;
-    background-color: #c00909;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+.nav-up {
+    top: -11vh;
 }
 
-.iframe-placeholder:hover {
-    background-color: #0949c0;
-    color: #000000;
-    transition: 0.2s ease-in-out;
+.nav-down {
+    top: 0;
 }
 
-.person-details {
+.person-contact {
     display: flex;
     justify-content: space-evenly;
 }
 
-.person-details-item {
+.person-contact-item {
     display: flex;
     align-items: center;
     justify-items: center;
@@ -126,8 +111,20 @@ main {
     margin: 0;
 }
 
-#person-skills {
+.person-experience-institution {
     display: flex;
+    align-items: center;
+}
+
+.person-experience {
+    padding: 5vh 0;
+}
+
+.person-info {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .person-skills {
@@ -148,79 +145,77 @@ main {
     padding: 0 1vw;
 }
 
-
-
-.person-experience {
-    padding: 5vh;
+a {
+    color: #e26e00;
 }
 
-.person-experience > .description {
-    padding-top: 5px;
-    padding-bottom: 5px;
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color: #b8b8b8;
+    background: #1a1d45;
+    font-family: 'Roboto Mono';
 }
 
-
-.person-experience > .date-and-place {
-    color: #797676;
+button {
+    font-family: 'Roboto Mono';
+    font-weight: bolder;
 }
 
-
-#person-info {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 2vh 0;
+div {
+    border-width: 2px;
 }
 
-#person-info-0 {
-    max-width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+footer {
+    height: auto;
+    background-color: #b8b8b8;
+    color: #1a1d45;
 }
 
-.person-experience-institution {
-    display: flex;
-    align-items: center;
+h2 {
+    margin: 0;
 }
 
-.person-experience,
-.games {
+header {
+    height: 10vh;
+    top: 0;
+    width: 100%;
+    background: #1a1d45;
+    position: fixed;
+    transition: top 0.2s ease-in-out;
     border-bottom-style: solid;
 }
 
-
-.games {
-    padding: 5vh 0;
+img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
-.games > div {
-    display: flex;
-    justify-content: center;
+main {
+    margin-top: 10vh;
+    height: auto;
 }
 
-.person-details-item > .icon {
-    padding-right: 10px;
+ul {
+    padding: 0 5vw;
 }
-
-
-.person-experience-institution > .icon {
-    display: flex;
-    align-content: center;
-    padding: 0 10px;
-}
-
-#person-name {
-    font-size: larger;
-}
-
 
 @media screen and (max-width: 1200px) {
-    body {
-        font-size: 2vh;
+    #person-image {
+        height: auto;
+        width: 30vw;
+        border-radius: 50%;
     }
     
-    h2 {
-        font-size: 3vh;
+    #about-container {
+        padding: 1vh 3vh 5vh;
+    }
+
+    #person-skills-container {
+        flex-direction: column;
     }
 
     .icon > img,
@@ -228,45 +223,42 @@ main {
         height: auto;
         width: 6vw;
     }
-
-    #image-me {
-        height: auto;
-        width: 30vw;
-        border-radius: 50%;
-    }
     
+    .person-contact {
+        flex-direction: column;
+    }
+
     .games > div > a > img {
         height: auto;
         width: 50vw;
     }
 
-    #person-skills {
-        flex-direction: column;
-    }
-
-    .person-details {
-        flex-direction: column;
-    }
-
     .person-skills {
         border-top-style: solid;
     }
+
     .person-skills:last-child {
         border-bottom-style: solid;
     }
-}
 
-@media screen and (min-width: 1201px) and (max-width: 1400px) {
     body {
-        font-size: 3vh;
+        font-size: 2vh;
     }
     
     h2 {
         font-size: 3vh;
     }
-    
-    #person-name {
-        font-size: 5vh;
+}
+
+@media screen and (min-width: 1201px) and (max-width: 2000px) {
+    #about-container {
+        padding: 3vh 3vw;
+    }
+
+    #person-image {
+        height: auto;
+        width: 20vw;
+        border-radius: 50%;
     }
 
     .games > div > a > img {
@@ -277,28 +269,26 @@ main {
     .icon > img,
     .icon > a > img {
         height: auto;
-        width: 2vw;
+        width: 4vw;
     }
     
-    #about {
-        padding: 3vh 3vw;
+    body {
+        font-size: 3vh;
     }
-
-    #image-me {
-        height: auto;
-        width: 20vw;
-        border-radius: 50%;
+    
+    h2 {
+        font-size: 3vh;
     }
 }
 
 @media screen and (min-width: 1201px) {
-    .person-details {
-        flex-direction: row;
-    }
-    
-    #person-skills {
+    #person-skills-container {
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .person-contact {
+        flex-direction: row;
     }
 
     .person-skills {
@@ -318,40 +308,38 @@ main {
 }
 
 
-@media screen and (min-width: 1401px) {
-    body {
-        font-size: 2vh;
+@media screen and (min-width: 2001px) {    
+    #about-container,
+    #games-container,
+    #cv-container {
+        padding: 3vh 20vw;
     }
-    
-    h2 {
-        font-size: 2vh;
+
+    #person-image {
+        height: auto;
+        width: 15vw;
+        border-radius: 50%;
     }
-    
+
     #person-name {
         font-size: 5vh;
     }
 
+    #person-experience {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        grid-auto-flow: column;
+    }
+    
     .games > div > a > img {
         height: auto;
         width: 20vw;
     }
 
     .icon > img,
-    .icon > a > img,
-    .person-skills > .icon > img {
+    .icon > a > img {
         width: 3vw;
-    }
-
-    #about, #games, #cv {
-        padding: 3vh 20vw;
-    }
-
-    
-    #person-experience {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: auto auto auto;
-        grid-auto-flow: column;
     }
 
     .person-experience {
@@ -361,16 +349,20 @@ main {
     .edu {
         border-right-style: solid;
         border-right-width: 1px;
+        padding-right: 2vw;
     }
     
     .job {
         border-left-style: solid;
         border-left-width: 1px;
+        padding-left: 2vw;
     }
 
-    #image-me {
-        height: auto;
-        width: 15vw;
-        border-radius: 50%;
+    body {
+        font-size: 2vh;
+    }
+    
+    h2 {
+        font-size: 2vh;
     }
 }

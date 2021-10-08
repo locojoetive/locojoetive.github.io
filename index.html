@@ -10,22 +10,22 @@
   </head>
   <body>
     <header id="header" class="nav-down">
-      <div id="header-items">
-        <button id="about-button" class="header-button" onclick="openTab('about', this)">
+      <div id="header-button-container">
+        <button id="about-button" class="header-button" onclick="openTab('about-container', this)">
           <h2>About</h2>
         </button>
-        <button id="games-button" class="header-button" onclick="openTab('games', this)">
+        <button id="games-button" class="header-button" onclick="openTab('games-container', this)">
           <h2>Games</h2>
         </button>
-        <button id="cv-button" class="header-button" onclick="openTab('cv', this)">
+        <button id="cv-button" class="header-button" onclick="openTab('cv-container', this)">
           <h2>CV</h2>
         </button>
       </div>
     </header>
     <main>
-      <div id="about" class="tab-content">
-        <div class="person-details">
-          <div class="person-details-item">
+      <div id="about-container" class="tab-content">
+        <div class="person-contact">
+          <div class="person-contact-item">
             <div class="icon">
               <a target="_blank" href="https://locojoetive.itch.io">
                 <img src="assets/icons/32px-itchio.png">
@@ -35,7 +35,7 @@
               <a target="_blank" href="https://locojoetive.itch.io">locojoetive.itch.io</a>
             </div>
           </div>
-          <div class="person-details-item">
+          <div class="person-contact-item">
             <div class="icon">
               <a target="_blank" href="https://github.com/locojoetive/">
                 <img src="assets/icons/32px-github.png">
@@ -45,7 +45,7 @@
               <a target="_blank" href="https://github.com/locojoetive/">locojoetive</a>
             </div>
           </div>
-          <div class="person-details-item">
+          <div class="person-contact-item">
             <div class="icon">
               <a target="_blank" href="https://www.linkedin.com/in/johmich/">
                 <img src="assets/icons/32px-linkedin.png">
@@ -55,7 +55,7 @@
               <a target="_blank" href="https://www.linkedin.com/in/johmich/">/in/johmich</a>
             </div>
           </div>
-          <div class="person-details-item">
+          <div class="person-contact-item">
             <div class="icon">
               <a target="_blank" href="mailto:johannes.mic@gmail.com">
                 <img src="assets/icons/32px-email.png">
@@ -96,10 +96,9 @@
           Oh yes!
           <br>
           Here is a list of games I made or helped to make!
-          Please leave a comment on the <a target="_blank" href="https://locojoetive.itch.io">linked pages</a> or send me an <a target="_blank" href="mailto:johannes.mic@gmail.com">e-mail</a>, if you enjoy them, have any questions or have simple sugesstions.
         </p>
       </div>
-      <div id="games" class="tab-content">
+      <div id="games-container" class="tab-content">
         <div class="games">
           <div>
             <a href="https://frobros.itch.io/dodge-or-die" target="_blank">
@@ -167,7 +166,10 @@
           
           <ul>
             <li>
-              player- & camera controls
+              player controls
+            </li>
+            <li>
+              camera movement
             </li>
             <li>
               shrinking mechanic
@@ -313,17 +315,17 @@
           </ul>
         </div>
       </div>
-      <div id="cv" class="tab-content">
-        <div id="person-info">
-          <div>
-            <img id="image-me" src="assets/images/me.png">
+      <div id="cv-container" class="tab-content">
+        <div id="person-info-container">
+          <div class="person-info">
+            <img id="person-image" src="assets/images/me.png">
           </div>
-          <div id="person-info-0">
+          <div class="person-info">
             <div id="person-name">Johannes Michael</div>
             <div id="person-job">Game Developer</div>
           </div>
         </div>
-        <div id="person-skills">
+        <div id="person-skills-container">
           <div class="person-skills">
             <div>Java</div>
             <div class="icon">
@@ -543,8 +545,11 @@
           </div>
         </div>
       </div>
+      <div>
+        
+      </div>
     </main>
-    <footer></footer>
+    <footer>Please leave a comment on the <a target="_blank" href="https://locojoetive.itch.io">linked games</a> or send me an <a target="_blank" href="mailto:johannes.mic@gmail.com">e-mail</a>, if you enjoy them, have any questions or have simple sugesstions.</footer>
     <script src="js/onClick.js"></script>
   </body>
 </html>
