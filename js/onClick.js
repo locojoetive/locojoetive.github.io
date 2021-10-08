@@ -1,3 +1,20 @@
+// content container
+const aboutContainer = document.getElementById('about');
+const gamesContainer = document.getElementById('games');
+const cvContainer = document.getElementById('cv');
+
+// header
+const headerElement = document.getElementsByTagName('HEADER')[0];
+
+// header buttons
+const aboutButton = document.getElementById('about-button');
+const gamesButton = document.getElementById('games-button');
+const cvButton = document.getElementById('cv-button');
+activateHeaderButton(aboutButton);
+
+// scrolling position
+let lastPos = 0;
+
 function activateHeaderButton(element)
 {
   const tablinks = document.getElementsByClassName('header-button');
@@ -48,8 +65,7 @@ function openTab(tabName, elmnt) {
 function hasScrolled() {
     // hide header on scroll down
     const currentPos = document.documentElement.scrollTop;
-    const headerElement = document.getElementsByTagName('HEADER')[0];
-    if(Math.abs(lastPos - currentPos) <= delta)
+    if(Math.abs(lastPos - currentPos) <= 0)
       return;
     if (currentPos > lastPos && currentPos > headerElement.offsetHeight){
       headerElement.classList.remove('nav-down');
@@ -77,17 +93,3 @@ function hasScrolled() {
 window.addEventListener("scroll", (event) => {
   hasScrolled();
 });
-
-
-const aboutContainer = document.getElementById('about');
-const gamesContainer = document.getElementById('games');
-const cvContainer = document.getElementById('cv');
-
-let lastPos = 0;
-const delta = 0;
-
-const aboutButton = document.getElementById('about-button');
-const gamesButton = document.getElementById('games-button');
-const cvButton = document.getElementById('cv-button');
-
-activateHeaderButton(aboutButton);
