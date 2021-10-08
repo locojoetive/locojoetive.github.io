@@ -110,7 +110,6 @@ main {
 
 .person-details {
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
 }
 
@@ -241,7 +240,11 @@ main {
     #person-skills {
         flex-direction: column;
     }
-    
+
+    .person-details {
+        flex-direction: column;
+    }
+
     .person-skills {
         border-top-style: solid;
     }
@@ -264,18 +267,21 @@ main {
         font-size: 5vh;
     }
 
-    .icon > img,
-    .icon > a > img {
-        height: auto;
-        width: 4vw;
-    }
-    
     #image-me {
         height: auto;
         width: 20vw;
         border-radius: 50%;
     }
 
+    .icon > img,
+    .icon > a > img {
+        height: auto;
+        width: 4vw;
+    }
+    
+    .person-details {
+        flex-direction: row;
+    }
     
     .games > div > a > img {
         height: auto;
