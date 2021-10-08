@@ -237,7 +237,7 @@ main {
 .person-experience-institution > .icon {
     display: flex;
     align-content: center;
-    padding: 0 1vw;
+    padding: 0 10px;
 }
 
 #person-name {
