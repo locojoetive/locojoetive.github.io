@@ -23,19 +23,29 @@
 #person-info-container {
     display: flex;
     justify-content: space-evenly;
-    margin: 2vh 0;
+    margin: max(5vh, 5vw) 0;
 }
 
 #person-job {
-    font-size: 3vh;
+    font-size: max(3vh, 3vw);
 }
 
 #person-name {
-    font-size: 5vh;
+    font-size: max(4vh, 4vw);
 }
 
 #person-skills-container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.person-skills {
+    border-top-style: solid;
+}
+
+.person-skills:last-child {
+    border-bottom-style: solid;
 }
 
 
@@ -108,7 +118,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s cubic-bezier();
     z-index: 2;
 }
 
@@ -117,11 +127,9 @@
     width: 50vw;
     color: #1a1d45;
     background: #b8b8b8;
-    border-radius: 2vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    transition: 0.2s ease-in-out;
 }
 
 .panel-text {
@@ -130,15 +138,15 @@
 
 .panel-text > p{
     padding: 0;
-    font-size: 3vh;
+}
+
+#panel-buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+    transition: top 0.2s ease-in-out;
 }
 
 .panel-buttons {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.panel-buttons > a {
     width: 15vw;
     height: 5vh;
     background-color: #1a1d45;
@@ -150,8 +158,10 @@
     line-height: 5vh;
     outline: none;
     cursor: pointer;
-    border-radius: 1vh;
-    transition: 0.2s ease-in-out;
+}
+
+.panel-buttons:hover {
+    box-shadow: none;
 }
 
 .person-contact {
@@ -185,13 +195,14 @@
 
 .person-skills {
     display: grid;
-    grid-template-columns: 30% 50%;
+    grid-template-columns: auto 50%;
     row-gap: 2vh;
-    padding: 5vh 0;
+    padding: max(5vh, 5vw) 0;
     align-items: center;
 }
 
 .person-skills > .name {
+    display: table;
     text-align: end;
     padding-right: 2vw;
 }
@@ -199,7 +210,7 @@
 .person-skills > .icon {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .person-skills > .icon > img {
@@ -218,6 +229,11 @@ body {
     color: #b8b8b8;
     background: #1a1d45;
     font-family: 'Roboto Mono';
+    font-size: max(2vh, 2vw);
+}
+
+h2 {
+    font-size: max(3vh, 3vw);
 }
 
 button {
@@ -255,6 +271,12 @@ img {
     image-rendering: crisp-edges;
 }
 
+.icon > img,
+.icon > a > img {
+    width: max(3vw, 3vh);
+    height: auto;
+}
+
 main {
     margin-top: 10vh;
     height: auto;
@@ -273,17 +295,16 @@ ul {
         transition: 0.2s ease-in-out;
     }
 
-    .panel-buttons {
+    #panel-buttons-container {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
     }
     
-    .panel-buttons > a {
+    .panel-buttons {
         height: 5vh;
         width: 30vw;
         margin: 4vh 0;
-        font-size: 2vh;
         line-height: 5vh;
     }
 
@@ -293,7 +314,6 @@ ul {
     
     .panel-text > p{
         padding: 0;
-        font-size: 2vh;
     }
     
 }
@@ -308,40 +328,14 @@ ul {
     #about-container {
         padding: 1vh 3vh 5vh;
     }
-
-    #person-skills-container {
-        flex-direction: column;
-    }
-
-    .icon > img,
-    .icon > a > img {
-        height: auto;
-        width: 6vw;
-    }
     
     .person-contact {
         flex-direction: column;
     }
 
     .games > div > a > img {
+        width: min(50vh, 50vw);
         height: auto;
-        width: 50vw;
-    }
-
-    .person-skills {
-        border-top-style: solid;
-    }
-
-    .person-skills:last-child {
-        border-bottom-style: solid;
-    }
-
-    body {
-        font-size: 2vh;
-    }
-    
-    h2 {
-        font-size: 3vh;
     }
 }
 
@@ -361,29 +355,9 @@ ul {
         width: 30vw;
     }
     
-    .icon > img,
-    .icon > a > img {
-        height: auto;
-        width: 4vw;
-    }
-    
-    body {
-        font-size: 3vh;
-    }
-    
-    h2 {
-        font-size: 3vh;
-    }
-}
-
-@media screen and (min-width: 1801px) {
     #person-skills-container {
         flex-direction: row;
         justify-content: space-evenly;
-    }
-
-    .person-contact {
-        flex-direction: row;
     }
 
     .person-skills {
@@ -402,6 +376,12 @@ ul {
     }
 }
 
+@media screen and (min-width: 1801px) {
+    .person-contact {
+        flex-direction: row;
+    }
+}
+
 
 @media screen and (min-width: 1801px) {
     #about-container,
@@ -417,7 +397,7 @@ ul {
     }
 
     #person-name {
-        font-size: 5vh;
+        /* font-size: 5vh; */
     }
 
     #person-experience {
@@ -432,10 +412,10 @@ ul {
         width: 20vw;
     }
 
-    .icon > img,
+    /* .icon > img,
     .icon > a > img {
         width: 3vw;
-    }
+    } */
 
     .person-experience {
         min-width: 50%;
@@ -454,10 +434,11 @@ ul {
     }
 
     body {
-        font-size: 2vh;
+        font-size: min(2vh, 2vw);
     }
     
     h2 {
-        font-size: 2vh;
+        font-size: min(3vh, 3vw);
     }
+    
 }
