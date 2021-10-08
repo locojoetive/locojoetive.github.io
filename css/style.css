@@ -128,6 +128,8 @@ main {
     display: flex;
     align-items: center;
     justify-items: center;
+    padding-bottom: 10px;
+    margin: 0;
 }
 
 #person-skills {
@@ -244,23 +246,16 @@ main {
     font-size: larger;
 }
 
-/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 /*
 @media screen and (min-width: 371px) {
     body {
         font-size: large;
     }
 }
-*/
-  
-  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+
 @media screen and (max-width: 370px) {
     body {
         font-size: medium;
     }
-    
-    .person-details-item {
-        padding-bottom: 10px;
-        margin: 0;
-    }
 }
+*/
