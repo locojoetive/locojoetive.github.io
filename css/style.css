@@ -8,9 +8,11 @@ body {
     font-family: 'Roboto Mono';
 }
 
+/*
 p {
     font-size: medium;
 }
+*/
 
 #about, #games, #cv {
     padding: 5vh 3vh;
@@ -21,7 +23,9 @@ p {
 #cv {
     display: flex;
     flex-direction: column;
+    /*
     font-size: medium;
+    */
 }
 
 a {
@@ -60,7 +64,9 @@ header {
 
 main {
     margin-top: 10vh;
+    /*
     font-size: xx-large;
+    */
     height: 2000px;
 }
 
@@ -106,14 +112,15 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    /*
     font-size: small;
+    */
 }
 
 .person-details-item {
     display: flex;
     align-items: center;
     justify-items: center;
-    margin: auto 20%;
 }
 
 #person-skills {
@@ -123,10 +130,27 @@ main {
 
 .person-skills {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100px auto;
+    row-gap: 2vh;
+    padding: 5vh 0;
+    justify-content: space-between;
 }
 
+.person-skills > .icon > img {
+    max-width: 15%;
+    height: auto;
+    padding: 0 1vw;
+}
+
+.person-skills > .icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
 .person-experience {
+    margin: 5vh 0;
     padding-bottom: 5vh;
 }
 
@@ -136,9 +160,11 @@ main {
 }
 
 
+/*
 .person-experience > .date-and-place, .description{
     font-size: small;
 }
+*/
 
 .person-experience > .date-and-place {
     color: #797676;
@@ -147,28 +173,27 @@ main {
 
 #person-info {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0 3vh 5vh;
+    justify-content: space-between;
+    margin: 2vh 0;
 }
 
 #person-info-0 {
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
+/*
 #person-name {
     font-size: x-large;
 }
+*/
 
 #image-me {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-}
-
-.person-experience {
-    margin: 5vh 3vh;
 }
 
 .person-experience-institution {
@@ -182,10 +207,53 @@ main {
     border-bottom-style: solid;
 }
 
-.person-skills {
-    padding: 5vh 0;
-}
 
 .games {
     padding: 5vh 0;
+}
+
+.person-details-item > .icon {
+    padding-right: 10px;
+}
+
+.icon > a {
+    display: block;
+    height: 32px;
+}
+
+/*
+.person-skills > .icon {
+    text-align: right;
+}
+*/
+
+.person-experience-institution > .icon {
+    display: flex;
+    align-content: center;
+    padding: 0 1vw;
+}
+
+#person-name {
+    font-size: larger;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+/*
+@media screen and (min-width: 371px) {
+    body {
+        font-size: large;
+    }
+}
+*/
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 370px) {
+    body {
+        font-size: medium;
+    }
+    
+    .person-details-item {
+        padding-bottom: 10px;
+        margin: 0;
+    }
 }
