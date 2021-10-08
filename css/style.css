@@ -184,10 +184,15 @@
 
 .person-skills {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 30% 50%;
     row-gap: 2vh;
     padding: 5vh 0;
     align-items: center;
+}
+
+.person-skills > .name {
+    text-align: end;
+    padding-right: 2vw;
 }
 
 .person-skills > .icon {
