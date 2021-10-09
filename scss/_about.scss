@@ -1,0 +1,32 @@
+.about-contact {
+    display: grid;
+    border-bottom-style: solid;
+    @include media("<=tablet")  {
+        grid-template:  
+        "a"
+        "b"
+        "c"
+        "d";
+    }
+    @include media(">tablet", "<=desktop")  {
+        grid-template:  
+        "a b"
+        "c d";
+    }
+    @include media(">desktop") {
+        grid-template:  
+            "a b c d";
+    }
+    
+    .about-contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2vh 0;
+        
+    }
+    
+    .about-contact-item-link {
+        padding-left: #{"max(1vh, 1vw)"};
+    }
+}

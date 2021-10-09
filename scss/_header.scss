@@ -1,0 +1,41 @@
+header {
+    height: 10vh;
+    top: 0;
+    width: 100%;
+    background: #1a1d45;
+    position: fixed;
+    transition: top 0.2s ease-in-out;
+    border-bottom-style: solid;
+}
+
+#header-button-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+    .header-button {
+        background-color: #1a1d45;
+        color: #b8b8b8;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 25%;
+        transition: 0.2s ease-in-out;
+    }
+
+    .header-button:hover {
+        background-color: #b8b8b8;
+        color: #1a1d45;
+        transition: 0.2s ease-in-out;
+    }
+
+    .nav-up {
+        top: -11vh;
+    }
+
+    .nav-down {
+        top: 0;
+    }
+}

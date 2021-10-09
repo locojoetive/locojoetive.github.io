@@ -1,0 +1,14 @@
+.games {
+    padding: 5vh 0;
+    border-bottom-style: solid;
+}
+
+.games > div > a > img {
+    width: #{"min(70vh, 70vw)"};
+    height: auto;
+}
+
+.games > div {
+    display: flex;
+    justify-content: center;
+}

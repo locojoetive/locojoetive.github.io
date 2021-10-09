@@ -1,0 +1,87 @@
+@import "./scss/dist/_include_media.scss";
+@import "./scss/_header.scss";
+@import "./scss/_about.scss";
+@import "./scss/_games.scss";
+@import "./scss/_cv.scss";
+@import "./scss/_overlay.scss";
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    color: #b8b8b8;
+    background: #1a1d45;
+    font-family: 'Roboto Mono';
+
+    @include media('<=tablet') { font-size: #{"max(2vh, 2vw)"};}
+    @include media(">tablet", "<=desktop") { font-size: #{"max(2vh, 2vw)"}; }
+    @include media(">desktop") { font-size: #{"max(1vh, 1vw)"}; }
+}
+
+h2 {
+    @include media('<=tablet') { font-size: #{"max(3vh, 3vw)"}; }
+    @include media(">tablet", "<=desktop") { font-size: #{"max(2vh, 2vw)"}; }
+    @include media(">desktop") { font-size: #{"max(1vh, 1vw)"}; }
+}
+
+a {
+    color: #e26e00;
+}
+
+
+button {
+    font-family: 'Roboto Mono';
+    font-weight: bolder;
+}
+
+div {
+    border-width: 2px;
+}
+
+footer {
+    height: auto;
+    background-color: #b8b8b8;
+    color: #1a1d45;
+}
+
+h2 {
+    margin: 0;
+}
+
+
+img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+main {
+    margin-top: 10vh;
+    height: auto;
+}
+
+ul {
+    padding: 0 5vw;
+}
+
+
+#about-container,
+#games-container,
+#cv-container
+{
+    border-bottom-style: solid;
+    @include media('<=tablet') { padding: #{"min(1vh, 1vw)"} 10vw 5vh;  }
+    @include media(">tablet", "<=desktop") { padding: #{"min(1vh, 1vw)"} 15vw 5vh;  }
+    @include media(">desktop") { padding: #{"min(1vh, 1vw)"} 20vw 5vh; }
+}
+
+/* Icons and containers */
+.icon > img,
+.icon > a > img {
+    width: #{"max(4vh, 4vw)"};
+    height: auto;
+    display: flex;
+    align-content: center;
+    justify-items: center;
+}

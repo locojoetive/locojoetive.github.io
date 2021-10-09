@@ -1,0 +1,132 @@
+
+#cv-container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#person-info-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: #{"max(5vh, 5vw)"} 0;
+    
+    .person-info {
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    #person-image {
+        height: auto;
+        width: 30vw;
+        border-radius: 50%;
+
+    }
+
+    #person-name {
+        font-size: #{"max(4vh, 4vw)"};
+        text-align: center;
+    }
+
+    #person-job {
+        font-size: #{"max(3vh, 3vw)"};
+        text-align: center;
+    }
+}
+
+
+.person-experience {
+    .date-and-place {
+        color: #797676;
+    }
+    .description {
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+    }
+}
+
+#person-skills-container {
+    display: flex;
+    justify-content: center;
+    @include media(">=tablet") {
+        flex-direction: row;
+        
+        .person-skills {
+            grid-template-columns: 1fr 1fr;
+        }
+        .person-skills:first-child {
+            border-style: solid solid solid none;
+            border-right-width: 1px;
+        }
+        
+        .person-skills:last-child {
+            border-style: solid none solid solid;
+            border-left-width: 1px;
+        }
+
+        .person-skill-icon {
+            img {
+                width: #{"max(3vh, 3vw)"};
+                padding-right: #{"max(1vh, 1vw)"};
+            }
+        }
+    }
+    @include media("<tablet") {
+        flex-direction: column;
+        .person-skills {
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .person-skill-icon {
+            img {
+                width: #{"max(4vh, 4vw)"};
+                padding-right: #{"max(1vh, 1vw)"};
+            }
+        }
+    }
+}
+
+
+.person-skills:last-child {
+    border-bottom-style: solid;
+}
+.person-skills {
+    display: grid;
+    row-gap: 2vh;
+    padding: #{"max(5vh, 5vw)"} 0;
+    align-items: center;
+    justify-content: end;
+    border-top-style: solid;
+}
+
+.person-skill-name {
+    display: flex;
+    justify-content: end;
+    text-align: right;
+    padding-right: 2vw;
+}
+
+.person-skill-icon {
+    display: flex;
+    justify-content: start;
+}
+
+.person-skill-icon {
+    display: flex;
+    justify-content: start;
+}
+
+.person-experience {
+    padding: 5vh 0;
+    border-bottom-style: solid;
+}
+
+.person-experience-institution {
+    display: flex;
+    align-items: center;
+}
+
+.person-experience-institution-name {
+    padding-left: #{"max(1vh, 1vw)"};
+}
