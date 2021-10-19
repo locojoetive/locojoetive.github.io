@@ -13,10 +13,10 @@
 }
 
 .panel {
-    height: 50vh;
-    width: #{"max(300px, 50vw)"};
+    height: #{"max(20rem, 50vh)"};
+    width: #{"max(20rem, 50vw)"};
     color: #1a1d45;
-    background: #b8b8b8;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
