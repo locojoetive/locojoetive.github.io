@@ -55,15 +55,18 @@
 }
 
 
-.title {
+.person-experience-title {
+    padding: 5vh 0;
+    border-top-style: solid;
+    border-bottom-style: solid;
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-style: double;
-    border-bottom-style: double;
     font-size: #{"max(2vh, 2vw)"};
+    font-weight: bold;
+    font-style: italic;
 }
 
 #person-skills-container {
