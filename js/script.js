@@ -52,17 +52,17 @@ function openTab(tabName, elmnt) {
 }
 
 function hasScrolled() {
-    // activate right header button
-    const halfWindowHeight = 0.5 * window.innerHeight;
-    const gamesYPos = gamesContainer.offsetTop - halfWindowHeight;
-    const cvYPos = cvContainer.offsetTop - halfWindowHeight;
-    if (currentPos > cvYPos)
-      activateHeaderButton(cvButton);
-    else if (currentPos > gamesYPos)
-      activateHeaderButton(gamesButton);
-    else
-      activateHeaderButton(aboutButton);
-    
+  // activate right header button
+  const currentPos = document.documentElement.scrollTop;
+  const halfWindowHeight = 0.5 * window.innerHeight;
+  const gamesYPos = gamesContainer.offsetTop - halfWindowHeight;
+  const cvYPos = cvContainer.offsetTop - halfWindowHeight;
+  if (currentPos > cvYPos)
+    activateHeaderButton(cvButton);
+  else if (currentPos > gamesYPos)
+    activateHeaderButton(gamesButton);
+  else
+    activateHeaderButton(aboutButton);  
 }
 
 window.addEventListener("scroll", (event) => {
