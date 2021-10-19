@@ -18,8 +18,13 @@
     }
 
     #person-image {
+        /*
+        @include media('<=tablet') { width: #{"min(70vh, 70vw)"}; }
+        @include media(">tablet", "<=desktop") { width: #{"min(70vh, 70vw)"}; }
+        @include media(">desktop") { width: #{"min(40vh, 40vw)"}; }
+        */
+        width: #{"min(40vh, 40vw)"};
         height: auto;
-        width: 30vw;
         border-radius: 50%;
 
     }
