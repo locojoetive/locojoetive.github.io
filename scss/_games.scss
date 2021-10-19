@@ -1,14 +1,30 @@
+.games:nth-child(2n+0) {
+    @include media(">desktop") { flex-direction: row-reverse;}
+}
+
 .games {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 5vh 0;
     border-bottom-style: solid;
-}
+    @include media('<=desktop') { flex-direction: column; }
+    @include media('>desktop') { flex-direction: row; }
 
-.games > div > a > img {
-    width: #{"min(70vh, 70vw)"};
-    height: auto;
-}
-
-.games > div {
-    display: flex;
-    justify-content: center;
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        @include media(">desktop") { width: 50%; }
+        a, a > img {
+            @include media('<=tablet') { width: #{"min(70vh, 70vw)"}; }
+            @include media(">tablet", "<=desktop") { width: #{"min(70vh, 70vw)"}; }
+            @include media(">desktop") { width: #{"min(40vh, 40vw)"}; }
+            height: auto;
+        }
+        ul {
+            padding: 0 0 20px 0;
+        }
+    }
 }
