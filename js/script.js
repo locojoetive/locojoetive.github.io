@@ -20,9 +20,9 @@ function activateHeaderButton(element)
   const tablinks = document.getElementsByClassName('header-button');
   for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = '#1a1d45';
-    tablinks[i].style.color = '#b8b8b8';
+    tablinks[i].style.color = '#ffffff';
   }
-  element.style.backgroundColor = '#b8b8b8';
+  element.style.backgroundColor = '#ffffff';
   element.style.color = '#1a1d45';
 }
 

@@ -15,8 +15,6 @@ header {
     justify-content: space-evenly;
     
     .header-button {
-        background-color: #1a1d45;
-        color: #b8b8b8;
         float: left;
         border: none;
         outline: none;
@@ -26,7 +24,7 @@ header {
     }
 
     .header-button:hover {
-        background-color: #b8b8b8;
+        background-color: #ffffff;
         color: #1a1d45;
         transition: 0.2s ease-in-out;
     }
