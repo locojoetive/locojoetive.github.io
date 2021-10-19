@@ -12,9 +12,6 @@ const gamesButton = document.getElementById('games-button');
 const cvButton = document.getElementById('cv-button');
 activateHeaderButton(aboutButton);
 
-// scrolling position
-let lastPos = 0;
-
 function activateHeaderButton(element)
 {
   const tablinks = document.getElementsByClassName('header-button');
@@ -41,16 +38,8 @@ function openTab(tabName, elmnt) {
   }
   // scroll to respective section
   else {
-    const currentPos = document.documentElement.scrollTop;
-    let goalPos  = document.getElementById(tabName).offsetTop;
-    // has to scroll up
-    if (currentPos - goalPos > 0)
-    {
-      const headerHeight = headerElement.offsetHeight;
-      goalPos = goalPos - headerHeight - 3;
-    }
-    // has to scroll down
-    else {}
+    const headerHeight = headerElement.offsetHeight;
+    let goalPos  = document.getElementById(tabName).offsetTop - headerHeight;
 
     // scroll to goalPos
     window.scroll(
@@ -63,20 +52,6 @@ function openTab(tabName, elmnt) {
 }
 
 function hasScrolled() {
-    // hide header on scroll down
-    const currentPos = document.documentElement.scrollTop;
-    if(Math.abs(lastPos - currentPos) <= 0)
-      return;
-    if (currentPos > lastPos && currentPos > headerElement.offsetHeight){
-      headerElement.classList.remove('nav-down');
-      headerElement.classList.add('nav-up');
-    } else // if (currentPos + window.innerHeight < document.offsetHeight)
-    {
-      headerElement.classList.remove('nav-up');
-      headerElement.classList.add('nav-down');
-    }
-    lastPos = currentPos;
-
     // activate right header button
     const halfWindowHeight = 0.5 * window.innerHeight;
     const gamesYPos = gamesContainer.offsetTop - halfWindowHeight;
