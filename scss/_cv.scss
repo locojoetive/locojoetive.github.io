@@ -49,6 +49,18 @@
     }
 }
 
+
+.title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-style: double;
+    border-bottom-style: double;
+    font-size: #{"max(2vh, 2vw)"};
+}
+
 #person-skills-container {
     display: flex;
     justify-content: center;
