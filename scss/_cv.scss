@@ -37,6 +37,9 @@
 
 
 .person-experience {
+    padding: 5vh 0;
+    border-bottom-style: solid;
+
     .date-and-place {
         color: #797676;
     }
@@ -115,11 +118,6 @@
 .person-skill-icon {
     display: flex;
     justify-content: start;
-}
-
-.person-experience {
-    padding: 5vh 0;
-    border-bottom-style: solid;
 }
 
 .person-experience-institution {
