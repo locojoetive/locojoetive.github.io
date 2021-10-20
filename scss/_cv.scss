@@ -54,6 +54,14 @@
     }
 }
 
+.person-experience.edu,
+.person-experience.job {
+    border-top-style: solid;
+}
+.person-experience.edu ~ .person-experience.edu,
+.person-experience.job ~ .person-experience.job {
+    border-top-style: none;
+}
 
 .person-experience-title {
     padding: 5vh 0;
