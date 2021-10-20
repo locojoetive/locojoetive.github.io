@@ -18,13 +18,15 @@ $x-big-font: #{'max(3vh, 3vw)'};
 body {
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     color: $font-color;
     background: $base-color;
     font-family: 'Roboto Mono';
     overflow-x: hidden;
-    @include media('<=desktop') { font-size: $medium-font; }
+    box-sizing: border-box;
+    @include media('<tablet') { font-size: $big-font; }
+    @include media('>tablet', '<=desktop') { font-size: $medium-font; }
     @include media('>desktop') { font-size: $x-small-font; }
 }
 

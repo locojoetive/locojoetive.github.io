@@ -9,23 +9,20 @@
     display: flex;
     justify-content: space-evenly;
     margin: 1rem 0;
-    padding: #{"max(5vh, 5vw)"} 0;
-    border-bottom-style: solid;
-    border-top-style: solid;
     .person-info {
-        max-width: 50%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        align-items: center;
     }
 
     #person-image {
+        width: #{'min(30vh, 30vw)'};
         /*
-        @include media('<=tablet') { width: #{"min(70vh, 70vw)"}; }
-        @include media(">tablet", "<=desktop") { width: #{"min(70vh, 70vw)"}; }
-        @include media(">desktop") { width: #{"min(40vh, 40vw)"}; }
+        @include media('<=desktop') { width: #{'min(20vh, 20vw)'}; }
+        @include media('>desktop') { width: #{'min(30vh, 30vw)'}; }
         */
-        width: #{"min(40vh, 40vw)"};
         height: auto;
         border-radius: 50%;
 
@@ -83,9 +80,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    @include media(">=tablet") {
+    @include media(">=phone") {
         flex-direction: row;
-        
         .person-skills {
             width: 50%;
             grid-template-columns: min-content auto;
@@ -101,10 +97,11 @@
             border-left-width: 1px;
         }
     }
-    @include media("<tablet") {
+    @include media("<phone") {
         flex-direction: column;
         .person-skills {
             grid-template-columns: 1fr 2fr;
+            justify-items: center;
         }
     }
 }
@@ -118,6 +115,7 @@
     padding: #{"max(5vh, 5vw)"} 0;
     align-items: center;
     justify-content: center;
+    
     border-top-style: solid;
 }
 
