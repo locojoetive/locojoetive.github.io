@@ -8,8 +8,10 @@
 #person-info-container {
     display: flex;
     justify-content: space-evenly;
-    margin: #{"max(5vh, 5vw)"} 0;
-    
+    margin: 1rem 0;
+    padding: #{"max(5vh, 5vw)"} 0;
+    border-bottom-style: solid;
+    border-top-style: solid;
     .person-info {
         max-width: 50%;
         display: flex;
@@ -30,12 +32,12 @@
     }
 
     #person-name {
-        font-size: #{"max(4vh, 4vw)"};
+        font-size: $x-big-font;
         text-align: center;
     }
 
     #person-job {
-        font-size: #{"max(3vh, 3vw)"};
+        font-size: $big-font;
         text-align: center;
     }
 }
@@ -72,7 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: #{"max(2vh, 2vw)"};
+    font-size: $big-font;
     font-weight: bold;
     font-style: italic;
 }
@@ -80,11 +82,14 @@
 #person-skills-container {
     display: flex;
     justify-content: center;
+    width: 100%;
     @include media(">=tablet") {
         flex-direction: row;
         
         .person-skills {
-            grid-template-columns: 1fr 1fr;
+            width: 50%;
+            grid-template-columns: min-content auto;
+
         }
         .person-skills:first-child {
             border-style: solid solid solid none;
@@ -95,29 +100,14 @@
             border-style: solid none solid solid;
             border-left-width: 1px;
         }
-
-        .person-skill-icon {
-            img {
-                width: #{"max(3vh, 3vw)"};
-                padding-right: #{"max(1vh, 1vw)"};
-            }
-        }
     }
     @include media("<tablet") {
         flex-direction: column;
         .person-skills {
             grid-template-columns: 1fr 2fr;
         }
-
-        .person-skill-icon {
-            img {
-                width: #{"max(4vh, 4vw)"};
-                padding-right: #{"max(1vh, 1vw)"};
-            }
-        }
     }
 }
-
 
 .person-skills:last-child {
     border-bottom-style: solid;
@@ -127,32 +117,24 @@
     row-gap: 2vh;
     padding: #{"max(5vh, 5vw)"} 0;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     border-top-style: solid;
+}
+
+
+.person-skills > .icon {
+    display: flex;
+    justify-content: start;
 }
 
 .person-skill-name {
     display: flex;
-    justify-content: end;
-    text-align: right;
-    padding-right: 2vw;
+    justify-content: start;
+    padding: 0 #{"max(1vh, 1vw)"};
 }
 
-.person-skill-icon {
-    display: flex;
-    justify-content: start;
-}
-
-.person-skill-icon {
-    display: flex;
-    justify-content: start;
-}
 
 .person-experience-institution {
     display: flex;
     align-items: center;
-}
-
-.person-experience-institution-name {
-    padding-left: #{"max(1vh, 1vw)"};
 }

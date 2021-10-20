@@ -19,7 +19,7 @@
         @include media(">desktop") { width: 50%; }
         a, a > img {
             @include media('<=tablet') { width: #{"min(70vh, 70vw)"}; }
-            @include media(">tablet", "<=desktop") { width: #{"min(70vh, 70vw)"}; }
+            @include media(">tablet", "<=desktop") { width: #{"min(50vh, 50vw)"}; }
             @include media(">desktop") { width: #{"min(40vh, 40vw)"}; }
             height: auto;
         }

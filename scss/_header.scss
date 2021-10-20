@@ -2,7 +2,7 @@ header {
     height: 10vh;
     top: 0;
     width: 100%;
-    background: #1a1d45;
+    background: $base-color;
     position: fixed;
     transition: top 0.2s ease-in-out;
     border-bottom-style: solid;
@@ -24,8 +24,6 @@ header {
     }
 
     .header-button:hover {
-        background-color: #ffffff;
-        color: #1a1d45;
         transition: 0.2s ease-in-out;
     }
 }

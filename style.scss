@@ -1,32 +1,41 @@
-@import "./scss/dist/_include_media.scss";
-@import "./scss/_header.scss";
-@import "./scss/_about.scss";
-@import "./scss/_games.scss";
-@import "./scss/_cv.scss";
-@import "./scss/_overlay.scss";
+$base-color: #1a1d45;
+$font-color: #ffffff;
+$link-color: #e26e00;
+
+$x-small-font: 1rem;
+$small-font: 2rem;
+$medium-font: #{'max(1vh, 1vw)'};
+$big-font: #{'max(2vh, 2vw)'};
+$x-big-font: #{'max(3vh, 3vw)'};
+
+@import './scss/dist/_include_media.scss';
+@import './scss/_header.scss';
+@import './scss/_about.scss';
+@import './scss/_games.scss';
+@import './scss/_cv.scss';
+@import './scss/_overlay.scss';
 
 body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
-    color: #ffffff;
-    background: #1a1d45;
+    color: $font-color;
+    background: $base-color;
     font-family: 'Roboto Mono';
-
-    @include media('<=tablet') { font-size: #{"max(2vh, 2vw)"};}
-    @include media(">tablet", "<=desktop") { font-size: #{"max(2vh, 2vw)"}; }
-    @include media(">desktop") { font-size: #{"max(1vh, 1vw)"}; }
+    overflow-x: hidden;
+    @include media('<=desktop') { font-size: $medium-font; }
+    @include media('>desktop') { font-size: $x-small-font; }
 }
 
 h2 {
-    @include media('<=tablet') { font-size: #{"max(3vh, 3vw)"}; }
-    @include media(">tablet", "<=desktop") { font-size: #{"max(2vh, 2vw)"}; }
-    @include media(">desktop") { font-size: #{"max(1vh, 1vw)"}; }
+    @include media('<=tablet') { font-size: $big-font; }
+    @include media('>tablet', '<=desktop') { font-size: $medium-font; }
+    @include media('>desktop') { font-size: $small-font; }
 }
 
 a {
-    color: #e26e00;
+    color: $link-color;
 }
 
 
@@ -60,15 +69,18 @@ main {
 #cv-container
 {
     border-bottom-style: solid;
-    @include media('<=tablet') { padding: #{"min(1vh, 1vw)"} 10vw 5vh;  }
-    @include media(">tablet", "<=desktop") { padding: #{"min(1vh, 1vw)"} 15vw 5vh;  }
-    @include media(">desktop") { padding: #{"min(1vh, 1vw)"} 20vw 5vh; }
+    @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
+    @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
+    @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 5vh; }
 }
 
 /* Icons and containers */
 .icon > img,
 .icon > a > img {
-    width: #{"max(4vh, 4vw)"};
+    @include media('<=tablet') { width: #{'max(2vh, 2vw)'};}
+    @include media('>tablet', '<=desktop') { width: #{'max(2vh, 2vw)'}; }
+    @include media('>desktop') { width: 3rem; }
+    padding: 0 #{'max(1vh, 1vw)'};
     height: auto;
     display: flex;
     align-content: center;
