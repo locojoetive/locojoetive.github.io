@@ -8,6 +8,7 @@ $medium-font: #{'max(1vh, 1vw)'};
 $big-font: #{'max(2vh, 2vw)'};
 $x-big-font: #{'max(3vh, 3vw)'};
 
+@import './scss/_fonts.scss';
 @import './scss/dist/_include_media.scss';
 @import './scss/_header.scss';
 @import './scss/_about.scss';
