@@ -336,7 +336,7 @@ header {
   width: 100%;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 647px) {
   #person-skills-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -359,7 +359,7 @@ header {
   }
 }
 
-@media (max-width: 449px) {
+@media (max-width: 646px) {
   #person-skills-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

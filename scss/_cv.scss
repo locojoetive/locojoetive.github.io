@@ -80,7 +80,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    @include media(">=phone") {
+    @include media(">=bigPhone") {
         flex-direction: row;
         .person-skills {
             width: 50%;
@@ -97,7 +97,7 @@
             border-left-width: 1px;
         }
     }
-    @include media("<phone") {
+    @include media("<bigPhone") {
         flex-direction: column;
         .person-skills {
             grid-template-columns: 1fr 2fr;
