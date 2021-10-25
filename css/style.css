@@ -96,6 +96,10 @@ header {
         -ms-flex-align: end;
             align-items: end;
   }
+  .games:nth-child(2n+0) div .list {
+    width: 100%;
+    display: block;
+  }
 }
 
 .games {
@@ -174,10 +178,6 @@ header {
   }
 }
 
-.games div ul {
-  max-width: 100%;
-}
-
 #cv-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -217,10 +217,6 @@ header {
 
 #person-info-container #person-image {
   width: min(30vh, 30vw);
-  /*
-        @include media('<=desktop') { width: min(20vh, 20vw); }
-        @include media('>desktop') { width: min(30vh, 30vw); }
-        */
   height: auto;
   border-radius: 50%;
 }
@@ -274,9 +270,26 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: max(2vh, 2vw);
   font-weight: bold;
   font-style: italic;
+}
+
+@media (min-width: 1064px) {
+  .person-experience-title {
+    font-size: max(2vh, 2vw);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1063px) {
+  .person-experience-title {
+    font-size: max(3vh, 3vw);
+  }
+}
+
+@media (max-width: 767px) {
+  .person-experience-title {
+    font-size: max(4vh, 4vw);
+  }
 }
 
 #person-skills-container {
@@ -370,6 +383,20 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 647px) {
+  .person-experience-institution .icon > img,
+  .person-experience-institution .icon > a > img {
+    padding: 0 max(3vh, 3vw);
+  }
+}
+
+@media (min-width: 648px) and (max-width: 768px) {
+  .person-experience-institution .icon > img,
+  .person-experience-institution .icon > a > img {
+    padding: max(2vh, 2vw);
+  }
 }
 
 #overlay {
@@ -546,10 +573,17 @@ main {
   justify-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 647px) {
   .icon > img,
   .icon > a > img {
-    width: max(2vh, 2vw);
+    width: max(4vh, 4vw);
+  }
+}
+
+@media (min-width: 648px) and (max-width: 768px) {
+  .icon > img,
+  .icon > a > img {
+    width: max(4vh, 4vw);
   }
 }
 
