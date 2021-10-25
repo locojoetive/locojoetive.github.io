@@ -28,7 +28,7 @@ body {
     box-sizing: border-box;
     @include media('<tablet') { font-size: $big-font; }
     @include media('>tablet', '<=desktop') { font-size: $medium-font; }
-    @include media('>desktop') { font-size: $x-small-font; }
+    @include media('>desktop') { font-size: $medium-font; }
 }
 
 h2 {
