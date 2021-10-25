@@ -19,13 +19,8 @@
 
     #person-image {
         width: #{'min(30vh, 30vw)'};
-        /*
-        @include media('<=desktop') { width: #{'min(20vh, 20vw)'}; }
-        @include media('>desktop') { width: #{'min(30vh, 30vw)'}; }
-        */
         height: auto;
         border-radius: 50%;
-
     }
 
     #person-name {
@@ -94,7 +89,6 @@
         .person-skills {
             width: 50%;
             grid-template-columns: min-content auto;
-
         }
         .person-skills:first-child {
             border-style: solid solid solid none;
