@@ -78,7 +78,8 @@ main {
 /* Icons and containers */
 .icon > img,
 .icon > a > img {
-    @include media('<=tablet') { width: #{'max(2vh, 2vw)'};}
+    @include media('<=bigPhone') { width: #{'max(4vh, 4vw)'};}
+    @include media('>bigPhone', '<=tablet') { width: #{'max(4vh, 4vw)'};}
     @include media('>tablet', '<=desktop') { width: #{'max(3vh, 3vw)'}; }
     @include media('>desktop') { width: 3rem; }
     padding: 0 #{'max(1vh, 1vw)'};

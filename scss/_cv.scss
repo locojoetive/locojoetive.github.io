@@ -144,4 +144,9 @@
 .person-experience-institution {
     display: flex;
     align-items: center;
+    .icon > img,
+    .icon > a > img {
+        @include media('<=bigPhone') { padding: 0 #{'max(3vh, 3vw)'}; }
+        @include media('>bigPhone', '<=tablet') { padding: #{'max(2vh, 2vw)'};}
+    }
 }
