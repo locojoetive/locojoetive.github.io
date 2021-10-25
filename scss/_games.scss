@@ -1,7 +1,9 @@
 .games:nth-child(2n+0) {
-    @include media(">tablet") { flex-direction: row-reverse;}
-    div {
-        align-items: end;
+    @include media(">desktop") {
+        flex-direction: row-reverse;
+        div {
+            align-items: end;
+        }
     }
 }
 
@@ -10,23 +12,23 @@
     align-items: center;
     padding: 5vh 0;
     border-bottom-style: solid;
-    @include media('<=tablet') { flex-direction: column; }
-    @include media('>tablet') { flex-direction: row; }
+    @include media('<=desktop') { flex-direction: column; }
+    @include media('>desktop') { flex-direction: row; }
 
     div {
         display: flex;
         align-items: start;
         flex-direction: column;
-        @include media(">tablet") { width: 50%; }
+        @include media(">desktop") { width: 50%; }
         a, a > img {
             @include media('<=phone') { width: #{"min(70vh, 70vw)"}; }
             @include media('>phone', '<=tablet') { width: #{"min(50vh, 50vw)"}; }
-            @include media('>tablet', '<=desktop') { width: #{"min(30vh, 30vw)"}; }
+            @include media('>tablet', '<=desktop') { width: #{"min(70vh, 70vw)"}; }
             @include media('>desktop') { width: #{"min(50vh, 50vw)"}; }
             height: auto;
         }
         ul {
-            width: 100%;
+            max-width: 100%;
         }
     }
 }
