@@ -78,7 +78,7 @@ main {
 .icon > img,
 .icon > a > img {
     @include media('<=tablet') { width: #{'max(2vh, 2vw)'};}
-    @include media('>tablet', '<=desktop') { width: #{'max(2vh, 2vw)'}; }
+    @include media('>tablet', '<=desktop') { width: #{'max(3vh, 3vw)'}; }
     @include media('>desktop') { width: 3rem; }
     padding: 0 #{'max(1vh, 1vw)'};
     height: auto;
