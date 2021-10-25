@@ -1,10 +1,12 @@
 .games:nth-child(2n+0) {
     @include media(">tablet") { flex-direction: row-reverse;}
+    div {
+        align-items: end;
+    }
 }
 
 .games {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     padding: 5vh 0;
     border-bottom-style: solid;
@@ -13,8 +15,7 @@
 
     div {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        align-items: start;
         flex-direction: column;
         @include media(">tablet") { width: 50%; }
         a, a > img {

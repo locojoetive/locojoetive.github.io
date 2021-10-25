@@ -93,13 +93,16 @@ header {
   }
 }
 
+.games:nth-child(2n+0) div {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
 .games {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -129,12 +132,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
