@@ -71,7 +71,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: $big-font;
+    @include media(">=smallDesktop") {
+        font-size: $big-font;
+    }
+    @include media(">=tablet", "<smallDesktop") {
+        font-size: $x-big-font;
+    }
+    @include media("<tablet") {
+        font-size: $xx-big-font;
+    }
+    
     font-weight: bold;
     font-style: italic;
 }
