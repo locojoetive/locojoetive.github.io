@@ -84,19 +84,18 @@ header {
   padding-left: max(1vh, 1vw);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1367px) {
   .games:nth-child(2n+0) {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-}
-
-.games:nth-child(2n+0) div {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  .games:nth-child(2n+0) div {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+  }
 }
 
 .games {
@@ -110,7 +109,7 @@ header {
   border-bottom-style: solid;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1366px) {
   .games {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -119,7 +118,7 @@ header {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1367px) {
   .games {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -141,7 +140,7 @@ header {
           flex-direction: column;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1367px) {
   .games div {
     width: 50%;
   }
@@ -165,7 +164,7 @@ header {
 
 @media (min-width: 769px) and (max-width: 1366px) {
   .games div a, .games div a > img {
-    width: min(30vh, 30vw);
+    width: min(70vh, 70vw);
   }
 }
 
@@ -176,7 +175,7 @@ header {
 }
 
 .games div ul {
-  width: 100%;
+  max-width: 100%;
 }
 
 #cv-container {
@@ -290,7 +289,7 @@ header {
   width: 100%;
 }
 
-@media (min-width: 647px) {
+@media (min-width: 1064px) {
   #person-skills-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -313,7 +312,7 @@ header {
   }
 }
 
-@media (max-width: 646px) {
+@media (max-width: 1063px) {
   #person-skills-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -455,39 +454,21 @@ body {
           box-sizing: border-box;
 }
 
-@media (max-width: 767px) {
-  body {
-    font-size: max(2vh, 2vw);
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1366px) {
-  body {
-    font-size: max(1vh, 1vw);
-  }
-}
-
-@media (min-width: 1367px) {
-  body {
-    font-size: max(1vh, 1vw);
-  }
-}
-
 @media (max-width: 768px) {
-  h2 {
-    font-size: max(2vh, 2vw);
+  h2, body {
+    font-size: max(3vh, 3vw);
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
-  h2 {
-    font-size: max(1vh, 1vw);
+  h2, body {
+    font-size: max(2vh, 2vw);
   }
 }
 
 @media (min-width: 1367px) {
-  h2 {
-    font-size: 2rem;
+  h2, body {
+    font-size: max(1vh, 1vw);
   }
 }
 
@@ -575,7 +556,7 @@ main {
 @media (min-width: 769px) and (max-width: 1366px) {
   .icon > img,
   .icon > a > img {
-    width: max(2vh, 2vw);
+    width: max(3vh, 3vw);
   }
 }
 
