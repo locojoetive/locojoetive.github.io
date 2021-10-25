@@ -26,15 +26,12 @@ body {
     font-family: 'Roboto Mono';
     overflow-x: hidden;
     box-sizing: border-box;
-    @include media('<tablet') { font-size: $big-font; }
-    @include media('>tablet', '<=desktop') { font-size: $medium-font; }
-    @include media('>desktop') { font-size: $medium-font; }
 }
 
-h2 {
-    @include media('<=tablet') { font-size: $big-font; }
-    @include media('>tablet', '<=desktop') { font-size: $medium-font; }
-    @include media('>desktop') { font-size: $small-font; }
+h2, body {
+    @include media('<=tablet') { font-size: $x-big-font; }
+    @include media('>tablet', '<=desktop') { font-size: $big-font; }
+    @include media('>desktop') { font-size: $medium-font; }
 }
 
 a {
