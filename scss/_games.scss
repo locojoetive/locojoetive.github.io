@@ -3,6 +3,11 @@
         flex-direction: row-reverse;
         div {
             align-items: end;
+            
+            .list {
+                width: 100%;
+                display: block;
+            }
         }
     }
 }
@@ -26,9 +31,6 @@
             @include media('>tablet', '<=desktop') { width: #{"min(70vh, 70vw)"}; }
             @include media('>desktop') { width: #{"min(50vh, 50vw)"}; }
             height: auto;
-        }
-        ul {
-            max-width: 100%;
         }
     }
 }
