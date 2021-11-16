@@ -24,7 +24,7 @@ body {
 }
 
 h2, body {
-    @include media('<=tablet') { font-size: $x-big-font; }
+    @include media('<=tablet') { font-size: $big-font; }
     @include media('>tablet', '<=desktop') { font-size: $big-font; }
     @include media('>desktop') { font-size: $medium-font; }
 }
