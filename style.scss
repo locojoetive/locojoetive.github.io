@@ -2,12 +2,6 @@ $base-color: #1a1d45;
 $font-color: #ffffff;
 $link-color: #e26e00;
 
-$x-small-font: 1rem;
-$small-font: 2rem;
-$medium-font: #{'max(1vh, 1vw)'};
-$big-font: #{'max(2vh, 2vw)'};
-$x-big-font: #{'max(3vh, 3vw)'};
-$xx-big-font: #{'max(4vh, 4vw)'};
 
 @import './scss/_fonts.scss';
 @import './scss/dist/_include_media.scss';
