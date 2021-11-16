@@ -3,6 +3,11 @@
     min-height: 90vh;
     display: flex;
     flex-direction: column;
+    
+    border-bottom-style: solid;
+    @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
+    @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
+    @include media('>desktop') { padding: 0 20vw; }
 }
 
 .about-text {

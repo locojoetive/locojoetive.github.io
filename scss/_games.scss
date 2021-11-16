@@ -1,35 +1,45 @@
-.games:nth-child(2n+0) {
-    @include media(">desktop") {
-        flex-direction: row-reverse;
-        div {
-            align-items: end;
-            
-            .list {
-                width: 100%;
-                display: block;
-            }
-        }
-    }
+#games > div {
+    min-height: 90vh;
+    border-bottom-style: solid;
 }
 
+#games > div:last-child {
+    border-bottom-style: hidden;
+}
+
+#games > div > div > h1 {
+    margin: 0;
+    padding: 3vh 0;
+}
+
+#games {
+    border-bottom-style: solid;
+    @include media('<=tablet') { padding: 0 10vw 5vh;  }
+    @include media('>tablet', '<=desktop') { padding: 0 15vw 5vh;  }
+    @include media('>desktop') { padding: 0 20vw 0vh; }
+}
 .games {
     display: flex;
-    align-items: center;
     padding: 5vh 0;
-    border-bottom-style: solid;
-    @include media('<=desktop') { flex-direction: column; }
+    @include media('<=desktop') { flex-direction: column-reverse; }
     @include media('>desktop') { flex-direction: row; }
 
     div {
         display: flex;
-        align-items: start;
         flex-direction: column;
-        @include media(">desktop") { width: 50%; }
+
+        @include media(">desktop") { 
+            justify-content: start;
+            align-items: flex-end;
+            width: 50%;
+        }
         a, a > img {
             @include media('<=phone') { width: #{"min(70vh, 70vw)"}; }
-            @include media('>phone', '<=tablet') { width: #{"min(50vh, 50vw)"}; }
+            @include media('>phone', '<=tablet') { width: 100%; }
             @include media('>tablet', '<=desktop') { width: #{"min(70vh, 70vw)"}; }
-            @include media('>desktop') { width: #{"min(50vh, 50vw)"}; }
+            @include media('>desktop') {
+                width: #{"min(50vh, 50vw)"};
+            }
             height: auto;
         }
     }
