@@ -1,5 +1,5 @@
 
-#cv-container {
+#cv {
     display: flex;
     flex-direction: column;
 }
@@ -24,12 +24,12 @@
     }
 
     #person-name {
-        font-size: $x-big-font;
+        font-size: $big-font;
         text-align: center;
     }
 
     #person-job {
-        font-size: $big-font;
+        font-size: $medium-font;
         text-align: center;
     }
 }

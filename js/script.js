@@ -1,8 +1,8 @@
 
 // content container
-const cvContainer = document.getElementById('cv-container');
 const aboutContainer = document.getElementById('about');
 const gamesContainer = document.getElementById('games');
+const cvContainer = document.getElementById('cv');
 
 
 // header buttons
