@@ -7,6 +7,7 @@ header {
     position: fixed;
     transition: top 0.2s ease-in-out;
     border-bottom-style: solid;
+    z-index: 1;
 }
 
 #header-button-container {
