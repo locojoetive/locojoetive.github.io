@@ -1,8 +1,8 @@
 
 // content container
-const aboutContainer = document.getElementById('about-container');
 const gamesContainer = document.getElementById('games-container');
 const cvContainer = document.getElementById('cv-container');
+const aboutContainer = document.getElementById('about');
 
 
 // header buttons
@@ -29,7 +29,7 @@ function openTab(tabName, elmnt) {
   highlightHeaderButton(elmnt);
   
   // scroll to the top
-  if (tabName === 'about-container') {
+  if (tabName === 'about') {
     window.scroll(
       {
         top: 0,

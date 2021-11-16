@@ -65,14 +65,14 @@ main {
     height: auto;
 }
 
-#about-container,
+#about,
 #games-container,
 #cv-container
 {
     border-bottom-style: solid;
     @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
     @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
-    @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 5vh; }
+    @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 0vh; }
 }
 
 /* Icons and containers */
