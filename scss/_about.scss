@@ -20,6 +20,7 @@
 .about-contact {
     display: grid;
     border-bottom-style: solid;
+    padding: 2rem 0;
     @include media("<=tablet")  {
         grid-template:  
         "a"
