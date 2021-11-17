@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Roboto Mono';
   src: url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot");
-  src: url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff2") format("woff2"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff") format("woff"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.ttf") format("truetype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.svg#roboto_condensedregular") format("svg");
+  src: url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff") format("woff"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.ttf") format("truetype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.svg#roboto_condensedregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -15,6 +15,7 @@ header {
   -webkit-transition: top 0.2s ease-in-out;
   transition: top 0.2s ease-in-out;
   border-bottom-style: solid;
+  z-index: 1;
 }
 
 #header-button-container {
@@ -43,10 +44,54 @@ header {
   transition: 0.2s ease-in-out;
 }
 
+#about {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom-style: solid;
+}
+
+@media (max-width: 768px) {
+  #about {
+    padding: min(1vh, 1vw) 10vw 5vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  #about {
+    padding: min(1vh, 1vw) 15vw 5vh;
+  }
+}
+
+@media (min-width: 1367px) {
+  #about {
+    padding: 0 20vw;
+  }
+}
+
+.about-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
 .about-contact {
   display: -ms-grid;
   display: grid;
   border-bottom-style: solid;
+  padding: 2rem 0;
 }
 
 @media (max-width: 768px) {
@@ -84,21 +129,39 @@ header {
   padding-left: max(1vh, 1vw);
 }
 
+#games > div {
+  min-height: 90vh;
+  border-bottom-style: solid;
+}
+
+#games > div:last-child {
+  border-bottom-style: hidden;
+}
+
+#games > div > div > h1 {
+  margin: 0;
+  padding: 3vh 0;
+}
+
+#games {
+  border-bottom-style: solid;
+}
+
+@media (max-width: 768px) {
+  #games {
+    padding: 0 10vw 5vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  #games {
+    padding: 0 15vw 5vh;
+  }
+}
+
 @media (min-width: 1367px) {
-  .games:nth-child(2n+0) {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-  }
-  .games:nth-child(2n+0) div {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-  }
-  .games:nth-child(2n+0) div .list {
-    width: 100%;
-    display: block;
+  #games {
+    padding: 0 20vw 0vh;
   }
 }
 
@@ -106,19 +169,15 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding: 5vh 0;
-  border-bottom-style: solid;
 }
 
 @media (max-width: 1366px) {
   .games {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
 
@@ -135,9 +194,6 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -146,6 +202,12 @@ header {
 
 @media (min-width: 1367px) {
   .games div {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     width: 50%;
   }
 }
@@ -162,7 +224,7 @@ header {
 
 @media (min-width: 451px) and (max-width: 768px) {
   .games div a, .games div a > img {
-    width: min(50vh, 50vw);
+    width: 100%;
   }
 }
 
@@ -178,7 +240,7 @@ header {
   }
 }
 
-#cv-container {
+#cv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -195,7 +257,7 @@ header {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin: 1rem 0;
+  padding: 2rem 0;
 }
 
 #person-info-container .person-info {
@@ -222,12 +284,12 @@ header {
 }
 
 #person-info-container #person-name {
-  font-size: max(3vh, 3vw);
+  font-size: 3rem;
   text-align: center;
 }
 
 #person-info-container #person-job {
-  font-size: max(2vh, 2vw);
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -276,19 +338,19 @@ header {
 
 @media (min-width: 1064px) {
   .person-experience-title {
-    font-size: max(2vh, 2vw);
+    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1063px) {
   .person-experience-title {
-    font-size: max(3vh, 3vw);
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 767px) {
   .person-experience-title {
-    font-size: max(4vh, 4vw);
+    font-size: 3rem;
   }
 }
 
@@ -483,19 +545,19 @@ body {
 
 @media (max-width: 768px) {
   h2, body {
-    font-size: max(3vh, 3vw);
+    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
   h2, body {
-    font-size: max(2vh, 2vw);
+    font-size: 1.5rem;
   }
 }
 
 @media (min-width: 1367px) {
   h2, body {
-    font-size: max(1vh, 1vw);
+    font-size: 1.5rem;
   }
 }
 
@@ -530,33 +592,25 @@ main {
   height: auto;
 }
 
-#about-container,
-#games-container,
-#cv-container {
+#cv {
   border-bottom-style: solid;
 }
 
 @media (max-width: 768px) {
-  #about-container,
-  #games-container,
-  #cv-container {
+  #cv {
     padding: min(1vh, 1vw) 10vw 5vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
-  #about-container,
-  #games-container,
-  #cv-container {
+  #cv {
     padding: min(1vh, 1vw) 15vw 5vh;
   }
 }
 
 @media (min-width: 1367px) {
-  #about-container,
-  #games-container,
-  #cv-container {
-    padding: min(1vh, 1vw) 20vw 5vh;
+  #cv {
+    padding: min(1vh, 1vw) 20vw 0vh;
   }
 }
 
