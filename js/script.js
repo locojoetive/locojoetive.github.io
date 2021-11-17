@@ -10,6 +10,29 @@ const aboutButton = document.getElementById('about-button');
 const gamesButton = document.getElementById('games-button');
 const cvButton = document.getElementById('cv-button');
 
+// header
+const headerElement = document.getElementsByTagName('HEADER')[0];
+
+// start by highlighting about button
+highlightHeaderButton(aboutButton);
+// highlight button when scrolling
+window.addEventListener("scroll", hasScrolled);
+
+// overlay
+const overlay = document.getElementById('overlay');
+var starPositionOverlay = 0;
+var scrollToPosition = 0;
+var dontScrollWhenOnGames = false;
+var currentTimeInMs = 0;
+var intervalId = 0;
+
+// display overlay on mobile devices
+document.getElementById('overlay').style.display = "none";
+const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+if (device) {
+  dontScrollWhenOnGames = true;
+}
+
 function highlightHeaderButton(element)
 {
   const themeBackgroundColor = '#1a1d45';
@@ -22,9 +45,7 @@ function highlightHeaderButton(element)
   element.style.color = themeBackgroundColor;
 }
 
-function openTab(tabName, elmnt) {
-  // header
-  const headerElement = document.getElementsByTagName('HEADER')[0];
+function openTab(tabName, elmnt) {  
   // highlight respective header button
   highlightHeaderButton(elmnt);
   
@@ -58,32 +79,65 @@ function hasScrolled() {
   const cvYPos = cvContainer.offsetTop - halfWindowHeight;
   if (currentPos > cvYPos)
     highlightHeaderButton(cvButton);
-  else if (currentPos > gamesYPos)
+  else if (currentPos > gamesYPos) {
+    if (dontScrollWhenOnGames) {
+      overlay.style.display = "flex";
+      starPositionOverlay = document.documentElement.scrollTop;
+      window.removeEventListener('scroll', hasScrolled);
+      window.addEventListener('scroll', noScroll);
+      const startTimeInMs = Date.now();
+      intervalId = setInterval(() => {
+        const timeInMs = Date.now();
+        currentTimeInMs = timeInMs - startTimeInMs;
+        const paperFighter = document.getElementById("paper-fighter");
+        const scrollTargetPosition = paperFighter.offsetTop - headerElement.offsetHeight;
+        scrollToPosition = clampedInterpolate(starPositionOverlay, scrollTargetPosition, currentTimeInMs / 1000, "EOCI");
+        window.scrollTo(0, scrollToPosition);
+      }, 1000/60);
+      dontScrollWhenOnGames = false;
+    }
     highlightHeaderButton(gamesButton);
+  }
   else
     highlightHeaderButton(aboutButton);  
 }
 
 function noScroll() {
   // display overlay on mobile devices
-  window.scrollTo(0, 0);
+  window.scrollTo(0, scrollToPosition);
 }
 
 function removeOverlay() {
-  document.getElementById('overlay').style.display = "none";  
+  clearInterval(intervalId);
+  overlay.style.display = "none";
   window.removeEventListener('scroll', noScroll);
+  window.addEventListener('scroll', hasScrolled);
 }
 
-// start by highlighting about button
-highlightHeaderButton(aboutButton);
+function clampedInterpolate(x, y, step, interpolate) {
+  let interpolation = 0;
+  step = step < 0 ? 0 : step;
+  step = step > 1 ? 1 : step;
+  switch(interpolate) {
+    case "EOCU":
+      interpolation = easeOutCubic(step);
+      break;
+    case "EOCI":
+      interpolation = easeOutCircular(step);
+      break;
+    case "L":
+      interpolation = step;
+      break;
+    default:
+      break;
+  }
+  return x + (y-x) * interpolation;
+}
 
-// highlight button when scrolling
-window.addEventListener("scroll", hasScrolled);
+function easeOutCubic(step) {
+  return 1 - Math.pow(1 - step, 3)
+}
 
-// display overlay on mobile devices
-const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-if(device) {  
-  window.scrollTo(0, 0);
-  window.addEventListener('scroll', noScroll);
-} else
-  removeOverlay();
+function easeOutCircular(step) {
+  return Math.sqrt(1 - Math.pow(step - 1, 2));
+}
