@@ -45,6 +45,7 @@ header {
 }
 
 #about {
+  position: relative;
   min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,24 +54,23 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-bottom-style: solid;
 }
 
 @media (max-width: 768px) {
   #about {
-    padding: min(1vh, 1vw) 10vw 5vh;
+    padding: 10vh 10vw 5vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
   #about {
-    padding: min(1vh, 1vw) 15vw 5vh;
+    padding: 10vh 15vw 5vh;
   }
 }
 
 @media (min-width: 1367px) {
   #about {
-    padding: 0 20vw;
+    padding: 10vh 20vw;
   }
 }
 
@@ -129,40 +129,40 @@ header {
   padding-left: max(1vh, 1vw);
 }
 
-#games > div {
-  min-height: 90vh;
-  border-bottom-style: solid;
-}
-
-#games > div:last-child {
-  border-bottom-style: hidden;
-}
-
-#games > div > div > h1 {
-  margin: 0;
-  padding: 3vh 0;
-}
-
-#games {
-  border-bottom-style: solid;
+#games-container {
+  border-top-style: solid;
 }
 
 @media (max-width: 768px) {
-  #games {
+  #games-container {
     padding: 0 10vw 5vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
-  #games {
+  #games-container {
     padding: 0 15vw 5vh;
   }
 }
 
 @media (min-width: 1367px) {
-  #games {
+  #games-container {
     padding: 0 20vw 0vh;
   }
+}
+
+#games-container > div {
+  min-height: 90vh;
+  border-bottom-style: solid;
+}
+
+#games-container > div:last-child {
+  border-bottom-style: hidden;
+}
+
+#games-container > div > div > h1 {
+  margin: 0;
+  padding: 3vh 0;
 }
 
 .games {
@@ -240,7 +240,7 @@ header {
   }
 }
 
-#cv {
+#cv-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -248,6 +248,25 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border-top-style: solid;
+}
+
+@media (max-width: 768px) {
+  #cv-container {
+    padding: min(1vh, 1vw) 10vw 5vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  #cv-container {
+    padding: min(1vh, 1vw) 15vw 5vh;
+  }
+}
+
+@media (min-width: 1367px) {
+  #cv-container {
+    padding: min(1vh, 1vw) 20vw 0vh;
+  }
 }
 
 #person-info-container {
@@ -592,26 +611,11 @@ main {
   height: auto;
 }
 
+#about,
+#games,
 #cv {
-  border-bottom-style: solid;
-}
-
-@media (max-width: 768px) {
-  #cv {
-    padding: min(1vh, 1vw) 10vw 5vh;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1366px) {
-  #cv {
-    padding: min(1vh, 1vw) 15vw 5vh;
-  }
-}
-
-@media (min-width: 1367px) {
-  #cv {
-    padding: min(1vh, 1vw) 20vw 0vh;
-  }
+  position: relative;
+  top: calc(-10vh - 2px);
 }
 
 /* Icons and containers */

@@ -1,23 +1,24 @@
-#games > div {
-    min-height: 90vh;
-    border-bottom-style: solid;
-}
-
-#games > div:last-child {
-    border-bottom-style: hidden;
-}
-
-#games > div > div > h1 {
-    margin: 0;
-    padding: 3vh 0;
-}
-
-#games {
-    border-bottom-style: solid;
+#games-container {
+    border-top-style: solid;
     @include media('<=tablet') { padding: 0 10vw 5vh;  }
     @include media('>tablet', '<=desktop') { padding: 0 15vw 5vh;  }
     @include media('>desktop') { padding: 0 20vw 0vh; }
 }
+
+#games-container > div {
+    min-height: 90vh;
+    border-bottom-style: solid;
+}
+
+#games-container > div:last-child {
+    border-bottom-style: hidden;
+}
+
+#games-container > div > div > h1 {
+    margin: 0;
+    padding: 3vh 0;
+}
+
 .games {
     display: flex;
     padding: 5vh 0;

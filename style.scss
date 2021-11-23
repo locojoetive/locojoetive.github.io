@@ -59,12 +59,12 @@ main {
     height: auto;
 }
 
-#cv
-{
-    border-bottom-style: solid;
-    @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
-    @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
-    @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 0vh; }
+// this component is a placeholder for the games container
+#about,
+#games,
+#cv {
+    position: relative;
+    top: calc(-10vh - 2px);
 }
 
 /* Icons and containers */

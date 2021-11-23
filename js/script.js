@@ -1,8 +1,8 @@
 
 // content container
 const aboutContainer = document.getElementById('about');
-const gamesContainer = document.getElementById('games');
-const cvContainer = document.getElementById('cv');
+const gamesContainer = document.getElementById('games-container');
+const cvContainer = document.getElementById('cv-container');
 
 
 // header buttons
@@ -16,7 +16,7 @@ const headerElement = document.getElementsByTagName('HEADER')[0];
 // start by highlighting about button
 highlightHeaderButton(aboutButton);
 // highlight button when scrolling
-window.addEventListener("scroll", hasScrolled);
+window.addEventListener('scroll', hasScrolled);
 
 // overlay
 const overlay = document.getElementById('overlay');
@@ -27,7 +27,7 @@ var currentTimeInMs = 0;
 var intervalId = 0;
 
 // display overlay on mobile devices
-document.getElementById('overlay').style.display = "none";
+document.getElementById('overlay').style.display = 'none';
 const device = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 if (device) {
   dontScrollWhenOnGames = true;
@@ -81,7 +81,7 @@ function hasScrolled() {
     highlightHeaderButton(cvButton);
   else if (currentPos > gamesYPos) {
     if (dontScrollWhenOnGames) {
-      overlay.style.display = "flex";
+      overlay.style.display = 'flex';
       starPositionOverlay = document.documentElement.scrollTop;
       window.removeEventListener('scroll', hasScrolled);
       window.addEventListener('scroll', noScroll);
@@ -89,9 +89,9 @@ function hasScrolled() {
       intervalId = setInterval(() => {
         const timeInMs = Date.now();
         currentTimeInMs = timeInMs - startTimeInMs;
-        const paperFighter = document.getElementById("paper-fighter");
+        const paperFighter = document.getElementById('paper-fighter');
         const scrollTargetPosition = paperFighter.offsetTop - headerElement.offsetHeight;
-        scrollToPosition = clampedInterpolate(starPositionOverlay, scrollTargetPosition, currentTimeInMs / 1000, "EOCI");
+        scrollToPosition = clampedInterpolate(starPositionOverlay, scrollTargetPosition, currentTimeInMs / 1000, 'EOCI');
         window.scrollTo(0, scrollToPosition);
       }, 1000/60);
       dontScrollWhenOnGames = false;
@@ -109,7 +109,7 @@ function noScroll() {
 
 function removeOverlay() {
   clearInterval(intervalId);
-  overlay.style.display = "none";
+  overlay.style.display = 'none';
   window.removeEventListener('scroll', noScroll);
   window.addEventListener('scroll', hasScrolled);
 }
@@ -119,13 +119,13 @@ function clampedInterpolate(x, y, step, interpolate) {
   step = step < 0 ? 0 : step;
   step = step > 1 ? 1 : step;
   switch(interpolate) {
-    case "EOCU":
+    case 'EOCU':
       interpolation = easeOutCubic(step);
       break;
-    case "EOCI":
+    case 'EOCI':
       interpolation = easeOutCircular(step);
       break;
-    case "L":
+    case 'L':
       interpolation = step;
       break;
     default:
