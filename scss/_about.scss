@@ -1,24 +1,6 @@
-#about {
-    // when the height of <#about> changes, the height of <header> needs to change as well
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    @include media('<=tablet') { padding: 10vh 10vw 5vh;  }
-    @include media('>tablet', '<=desktop') { padding: 10vh 15vw 5vh;  }
-    @include media('>desktop') { padding: 10vh 20vw; }
-}
-
-.about-text {
-    display: flex;
-    align-items: center;
-    max-height: 100%;
-    flex: 1 0 auto;
-}
-
 .about-contact {
     display: grid;
-    border-bottom-style: solid;
+    border-top-style: solid;
     padding: 2rem 0;
     @include media("<=tablet")  {
         grid-template:  

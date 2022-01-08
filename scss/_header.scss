@@ -1,5 +1,4 @@
 header {
-    // when the height of <header> changes, the height of <#about> needs to change as well
     height: 10vh;
     top: 0;
     width: 100%;
@@ -14,14 +13,14 @@ header {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     
     .header-button {
         float: left;
         border: none;
         outline: none;
         cursor: pointer;
-        width: 25%;
+        width: 50%;
         transition: 0.2s ease-in-out;
     }
 

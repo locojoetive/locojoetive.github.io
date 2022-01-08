@@ -10,6 +10,11 @@
 
 #person-info-container {
     display: flex;
+    @include media('<=bigPhone') {
+        flex-direction: column;
+        align-items: center;
+    }
+    @include media('>bigPhone') { flex-direction: row; }
     justify-content: space-evenly;
     padding: 2rem 0;
     .person-info {
@@ -21,7 +26,8 @@
     }
 
     #person-image {
-        width: #{'min(30vh, 30vw)'};
+        @include media('<=tablet') { width: #{'min(50vh, 50vw)'}; padding-bottom: 2vh;}
+        @include media('>tablet') { width: #{'min(30vh, 30vw)'}; }
         height: auto;
         border-radius: 50%;
     }
@@ -76,7 +82,7 @@
         font-size: $x-big-font;
     }
     @include media("<tablet") {
-        font-size: $xx-big-font;
+        font-size: $x-big-font;
     }
     
     font-weight: bold;
@@ -85,7 +91,7 @@
 
 #person-skills-container {
     display: flex;
-    justify-content: center;
+    
     width: 100%;
     @include media(">=smallDesktop") {
         flex-direction: row;
@@ -107,7 +113,9 @@
         flex-direction: column;
         .person-skills {
             grid-template-columns: 1fr 2fr;
-            justify-items: center;
+            
+        @include media("<bigPhone") {justify-items: space-between;}
+        @include media(">=bigPhone") {justify-items: center;}
         }
     }
 }
@@ -128,7 +136,9 @@
 
 .person-skills > .icon {
     display: flex;
-    justify-content: start;
+    @include media("<bigPhone") {justify-content: end;}
+    @include media(">=bigPhone") {justify-content: center;}
+    
 }
 
 .person-skill-name {
