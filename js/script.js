@@ -1,12 +1,10 @@
 
 // content container
-const aboutContainer = document.getElementById('about');
 const gamesContainer = document.getElementById('games-container');
 const cvContainer = document.getElementById('cv-container');
 
 
 // header buttons
-const aboutButton = document.getElementById('about-button');
 const gamesButton = document.getElementById('games-button');
 const cvButton = document.getElementById('cv-button');
 
@@ -14,7 +12,7 @@ const cvButton = document.getElementById('cv-button');
 const headerElement = document.getElementsByTagName('HEADER')[0];
 
 // start by highlighting about button
-highlightHeaderButton(aboutButton);
+highlightHeaderButton(gamesButton);
 // highlight button when scrolling
 window.addEventListener('scroll', hasScrolled);
 
@@ -49,26 +47,14 @@ function openTab(tabName, elmnt) {
   // highlight respective header button
   highlightHeaderButton(elmnt);
   
-  // scroll to the top
-  if (tabName === 'about') {
-    window.scroll(
-      {
-        top: 0,
-        behavior: 'smooth'
-      }
-    );
-  }
-  // scroll to respective section
-  else {
-    const goalPos  = document.getElementById(tabName).offsetTop - headerElement.offsetHeight;
-    // scroll to goalPos
-    window.scroll(
-      {
-        top: goalPos,
-        behavior: 'smooth'
-      }
-    );
-  }
+  const goalPos  = document.getElementById(tabName).offsetTop - headerElement.offsetHeight;
+  // scroll to goalPos
+  window.scroll(
+    {
+      top: goalPos,
+      behavior: 'smooth'
+    }
+  );
 }
 
 function hasScrolled() {
@@ -98,8 +84,6 @@ function hasScrolled() {
     }
     highlightHeaderButton(gamesButton);
   }
-  else
-    highlightHeaderButton(aboutButton);  
 }
 
 function noScroll() {
