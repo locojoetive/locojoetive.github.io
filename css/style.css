@@ -179,13 +179,13 @@ header {
   }
 }
 
-@media (min-width: 451px) and (max-width: 768px) {
+@media (min-width: 451px) and (max-width: 647px) {
   .games div a, .games div a > img {
     width: 100%;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1366px) {
+@media (min-width: 648px) and (max-width: 1366px) {
   .games div a, .games div a > img {
     width: min(70vh, 70vw);
   }

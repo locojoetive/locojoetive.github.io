@@ -36,8 +36,8 @@
         }
         a, a > img {
             @include media('<=phone') { width: #{"min(70vh, 70vw)"}; }
-            @include media('>phone', '<=tablet') { width: 100%; }
-            @include media('>tablet', '<=desktop') { width: #{"min(70vh, 70vw)"}; }
+            @include media('>phone', '<=bigPhone') { width: 100%; }
+            @include media('>bigPhone', '<=desktop') { width: #{"min(70vh, 70vw)"}; }
             @include media('>desktop') {
                 width: #{"min(50vh, 50vw)"};
             }
