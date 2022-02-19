@@ -8,41 +8,6 @@
     @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 0vh; }
 }
 
-#person-info-container {
-    display: flex;
-    @include media('<=bigPhone') {
-        flex-direction: column;
-        align-items: center;
-    }
-    @include media('>bigPhone') { flex-direction: row; }
-    justify-content: space-evenly;
-    padding: 2rem 0;
-    .person-info {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    #person-image {
-        @include media('<=tablet') { width: #{'min(50vh, 50vw)'}; padding-bottom: 2vh;}
-        @include media('>tablet') { width: #{'min(30vh, 30vw)'}; }
-        height: auto;
-        border-radius: 50%;
-    }
-
-    #person-name {
-        font-size: $xx-big-font;
-        text-align: center;
-    }
-
-    #person-job {
-        font-size: $medium-font;
-        text-align: center;
-    }
-}
-
 
 .person-experience {
     padding: 5vh 0;

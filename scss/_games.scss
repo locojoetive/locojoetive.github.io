@@ -25,6 +25,10 @@
     @include media('<=desktop') { flex-direction: column-reverse; }
     @include media('>desktop') { flex-direction: row; }
 
+    p {
+        margin-top: 0;
+    }
+
     div {
         display: flex;
         flex-direction: column;

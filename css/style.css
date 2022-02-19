@@ -44,48 +44,6 @@ header {
   transition: 0.2s ease-in-out;
 }
 
-.about-contact {
-  display: -ms-grid;
-  display: grid;
-  border-top-style: solid;
-  padding: 2rem 0;
-}
-
-@media (max-width: 768px) {
-  .about-contact {
-    grid-template: "a" "b" "c" "d";
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1366px) {
-  .about-contact {
-    grid-template: "a b" "c d";
-  }
-}
-
-@media (min-width: 1367px) {
-  .about-contact {
-    grid-template: "a b c d";
-  }
-}
-
-.about-contact .about-contact-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 2vh 0;
-}
-
-.about-contact .about-contact-item-link {
-  padding-left: max(1vh, 1vw);
-}
-
 #games-container {
   border-top-style: solid;
 }
@@ -145,6 +103,10 @@ header {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+}
+
+.games p {
+  margin-top: 0;
 }
 
 .games div {
@@ -224,82 +186,6 @@ header {
   #cv-container {
     padding: min(1vh, 1vw) 20vw 0vh;
   }
-}
-
-#person-info-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  padding: 2rem 0;
-}
-
-@media (max-width: 647px) {
-  #person-info-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-
-@media (min-width: 648px) {
-  #person-info-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-
-#person-info-container .person-info {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#person-info-container #person-image {
-  height: auto;
-  border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-  #person-info-container #person-image {
-    width: min(50vh, 50vw);
-    padding-bottom: 2vh;
-  }
-}
-
-@media (min-width: 769px) {
-  #person-info-container #person-image {
-    width: min(30vh, 30vw);
-  }
-}
-
-#person-info-container #person-name {
-  font-size: 3rem;
-  text-align: center;
-}
-
-#person-info-container #person-job {
-  font-size: 1.5rem;
-  text-align: center;
 }
 
 .person-experience {
@@ -556,6 +442,156 @@ header {
 .panel-buttons:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+#person {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 768px) {
+  #person {
+    padding: min(1vh, 1vw) 10vw 5vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  #person {
+    padding: min(1vh, 1vw) 15vw 5vh;
+  }
+}
+
+@media (min-width: 1367px) {
+  #person {
+    padding: min(1vh, 1vw) 20vw 0vh;
+  }
+}
+
+#person-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 2rem 0;
+}
+
+@media (max-width: 647px) {
+  #person-info-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (min-width: 648px) {
+  #person-info-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+#person-info-container .person-info {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#person-info-container #person-image {
+  height: auto;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  #person-info-container #person-image {
+    width: min(50vh, 50vw);
+    padding-bottom: 2vh;
+  }
+}
+
+@media (min-width: 769px) {
+  #person-info-container #person-image {
+    width: min(30vh, 30vw);
+  }
+}
+
+#person-info-container #person-name {
+  font-size: 3rem;
+  text-align: center;
+}
+
+#person-info-container #person-job {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.about-contact {
+  display: -ms-grid;
+  display: grid;
+  border-top-style: solid;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .about-contact {
+    grid-template: "a" "b" "c" "d";
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  .about-contact {
+    grid-template: "a b" "c d";
+  }
+}
+
+@media (min-width: 1367px) {
+  .about-contact {
+    grid-template: "a b c d";
+  }
+}
+
+.about-contact .about-contact-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 2vh 0;
+}
+
+.about-contact .about-contact-item-link {
+  padding-left: max(1vh, 1vw);
 }
 
 body {

@@ -1,0 +1,79 @@
+#person {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
+    @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
+    @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 0vh; }
+}
+
+
+#person-info-container {
+    display: flex;
+    @include media('<=bigPhone') {
+        flex-direction: column;
+        align-items: center;
+    }
+    @include media('>bigPhone') { flex-direction: row; }
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    .person-info {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #person-image {
+        @include media('<=tablet') { width: #{'min(50vh, 50vw)'}; padding-bottom: 2vh;}
+        @include media('>tablet') { width: #{'min(30vh, 30vw)'}; }
+        height: auto;
+        border-radius: 50%;
+    }
+
+    #person-name {
+        font-size: $xx-big-font;
+        text-align: center;
+    }
+
+    #person-job {
+        font-size: $medium-font;
+        text-align: center;
+    }
+}
+
+.about-contact {
+    display: grid;
+    border-top-style: solid;
+    padding: 2rem 0;
+    @include media("<=tablet")  {
+        grid-template:  
+        "a"
+        "b"
+        "c"
+        "d";
+    }
+    @include media(">tablet", "<=desktop")  {
+        grid-template:  
+        "a b"
+        "c d";
+    }
+    @include media(">desktop") {
+        grid-template:  
+            "a b c d";
+    }
+    
+    .about-contact-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 2vh 0;
+        
+    }
+    
+    .about-contact-item-link {
+        padding-left: #{"max(1vh, 1vw)"};
+    }
+}
