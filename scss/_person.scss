@@ -50,7 +50,6 @@
 
 .about-contact {
     display: grid;
-    border-top-style: solid;
     padding: 2rem 0;
     @include media("<=tablet")  {
         grid-template:  

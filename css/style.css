@@ -52,7 +52,7 @@ header {
 #header-button-container .header-button .icon {
   height: 32px;
   width: 32px;
-  margin: 0 16px;
+  margin-right: 16px;
 }
 
 #header-button-container .header-button .icon img {
@@ -222,19 +222,19 @@ header {
 
 @media (max-width: 768px) {
   #cv-container {
-    padding: min(1vh, 1vw) 10vw 5vh;
+    padding: 0 10vw 5vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
   #cv-container {
-    padding: min(1vh, 1vw) 15vw 5vh;
+    padding: 0 15vw 5vh;
   }
 }
 
 @media (min-width: 1367px) {
   #cv-container {
-    padding: min(1vh, 1vw) 20vw 0vh;
+    padding: 0 20vw 0vh;
   }
 }
 
@@ -262,10 +262,12 @@ header {
   border-top-style: none;
 }
 
+.person-experience-title:first-of-type {
+  border-top-style: solid;
+}
+
 .person-experience-title {
   padding: 5vh 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -603,7 +605,6 @@ header {
 .about-contact {
   display: -ms-grid;
   display: grid;
-  border-top-style: solid;
   padding: 2rem 0;
 }
 
@@ -707,6 +708,7 @@ main {
 #games,
 #cv {
   position: relative;
+  top: calc(-10vh - 2px);
 }
 
 /* Icons and containers */
@@ -747,36 +749,6 @@ main {
   .icon > img,
   .icon > a > img {
     width: 3rem;
-  }
-}
-
-.title {
-  padding: 5vh 0;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  margin-bottom: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-weight: bold;
-  font-style: italic;
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .title {
-    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
