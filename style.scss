@@ -79,6 +79,7 @@ main {
 }
 
 .title {
+    margin-bottom: 0;
     padding: 5vh 0;
     border-top-style: solid;
     border-bottom-style: solid;
@@ -95,4 +96,15 @@ main {
     
     font-weight: bold;
     font-style: italic;
+    .icon {
+        height: 32px;
+        width: 32px;
+        margin-right: 16px;
+        img {
+            padding-left: 0;
+            border: none;
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
