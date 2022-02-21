@@ -62,7 +62,6 @@ main {
 #games,
 #cv {
     position: relative;
-    top: calc(-10vh - 2px);
 }
 
 /* Icons and containers */
@@ -77,4 +76,23 @@ main {
     display: flex;
     align-content: center;
     justify-items: center;
+}
+
+.title {
+    padding: 5vh 0;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(">=tablet") {
+        font-size: $x-big-font;
+    }
+    @include media("<tablet") {
+        font-size: $x-big-font;
+    }
+    
+    font-weight: bold;
+    font-style: italic;
 }

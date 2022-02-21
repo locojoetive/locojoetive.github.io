@@ -31,16 +31,28 @@
     </div>
     <header id="header">
       <div id="header-button-container">
-        <button id="games-button" class="header-button" onclick="openTab('games-container', this)">
+        <button id="person-button" class="header-button" onclick="openTab('person-container', this)">
+          <div class="icon">
+            <img src="assets/icons/32px-placeholder.png">
+          </div>
+          <h2>Top</h2>
+        </button>
+        <button id="games-button" class="header-button" onclick="openTab('games', this)">
+          <div class="icon">
+            <img src="assets/icons/32px-placeholder.png">
+          </div>
           <h2>Games</h2>
         </button>
-        <button id="cv-button" class="header-button" onclick="openTab('cv-container', this)">
-          <h2>CV</h2>
+        <button id="cv-button" class="header-button" onclick="openTab('cv', this)">
+          <div class="icon">
+            <img src="assets/icons/32px-placeholder.png">
+          </div>
+          <h2>EXP</h2>
         </button>
       </div>
     </header>
     <main>
-      <div id="person">
+      <div id="person-container">
         <div id="person-info-container">
           <div class="person-info">
             <img id="person-image" src="assets/images/me.png">
@@ -94,7 +106,7 @@
         </div>
       </div>
       <div id="games"></div>
-      <div class="person-experience-title">Games</div>
+      <h2 class="title">Games</h2>
       <div id="games-container" class="tab-content">
         <div>
           <div>
@@ -308,6 +320,7 @@
         </div>
       </div>
       <div id="cv"></div>
+      <div class="title">Experience</div>
       <div id="cv-container" class="tab-content">
         <div class="person-experience-title">Skills</div>
         <div id="person-skills-container">

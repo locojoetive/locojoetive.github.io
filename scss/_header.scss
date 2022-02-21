@@ -16,12 +16,62 @@ header {
     justify-content: center;
     
     .header-button {
+        transition: top 1s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         float: left;
         border: none;
         outline: none;
         cursor: pointer;
         width: 50%;
         transition: 0.2s ease-in-out;
+        .icon {
+            height: 32px;
+            width: 32px;
+            margin: 0 16px;
+            img {
+                border: none;
+                height: 100%;
+                width: 100%;
+            }
+
+        }
+    }
+
+    .header-button-active {
+        color: $base-color;
+        background-color: $font-color;
+    }
+
+
+    #person-button.header-button-inactive > .icon > img {
+        background: url(/assets/icons/32px-house-white.png) no-repeat;
+    }
+    
+    #games-button.header-button-inactive > .icon > img {
+        background: url(/assets/icons/32px-joypad-white.png) no-repeat;
+    }
+    
+    #cv-button.header-button-inactive > .icon > img {
+        background: url(/assets/icons/32px-wrench-white.png) no-repeat;
+    }
+
+    .header-button-inactive {
+        color: $font-color;
+        background-color: $base-color;
+    }
+    
+    #person-button.header-button-active > .icon > img {
+        background: url(/assets/icons/32px-house-inverse.png) no-repeat;
+    }
+    
+    #games-button.header-button-active > .icon > img {
+        background: url(/assets/icons/32px-joypad-inverse.png) no-repeat;
+    }
+    
+    #cv-button.header-button-active > .icon > img {
+        background: url(/assets/icons/32px-wrench-inverse.png) no-repeat;
     }
 
     .header-button:hover {

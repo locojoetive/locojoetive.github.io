@@ -7,11 +7,7 @@ $xx-big-font: 3rem;
 
 @font-face {
   font-family: 'Roboto Mono';
-  src: url('fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot');
-  src: url('fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff') format('woff'),
-       url('fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.ttf') format('truetype'),
-       url('fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.svg#roboto_condensedregular') format('svg');
+  src: url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

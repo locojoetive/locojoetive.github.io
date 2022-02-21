@@ -1,18 +1,19 @@
-
 // content container
-const gamesContainer = document.getElementById('games-container');
-const cvContainer = document.getElementById('cv-container');
+const personContainer = document.getElementById('person-container');
+const gamesContainer = document.getElementById('games');
+const cvContainer = document.getElementById('cv');
 
 
 // header buttons
+const personButton = document.getElementById('person-button');
 const gamesButton = document.getElementById('games-button');
 const cvButton = document.getElementById('cv-button');
 
 // header
 const headerElement = document.getElementsByTagName('HEADER')[0];
 
-// start by highlighting about button
-highlightHeaderButton(gamesButton);
+// start by highlighting home button
+highlightHeaderButton(personButton);
 // highlight button when scrolling
 window.addEventListener('scroll', hasScrolled);
 
@@ -33,19 +34,20 @@ if (device) {
 
 function highlightHeaderButton(element)
 {
-  const themeBackgroundColor = '#1a1d45';
-  const themeColor = '#ffffff';
   for (let headerButton of document.getElementsByClassName('header-button')) {
-    headerButton.style.backgroundColor = themeBackgroundColor;
-    headerButton.style.color= themeColor;
+    headerButton.classList.remove("header-button-active");
+    headerButton.classList.add("header-button-inactive");
   }
-  element.style.backgroundColor = themeColor;
-  element.style.color = themeBackgroundColor;
+  if (element)
+  {
+    element.classList.remove("header-button-inactive");
+    element.classList.add("header-button-active");
+  }
 }
 
 function openTab(tabName, elmnt) {  
   // highlight respective header button
-  highlightHeaderButton(elmnt);
+  // highlightHeaderButton(elmnt);
   
   const goalPos  = document.getElementById(tabName).offsetTop - headerElement.offsetHeight;
   // scroll to goalPos
@@ -66,6 +68,7 @@ function hasScrolled() {
   if (currentPos > cvYPos)
     highlightHeaderButton(cvButton);
   else if (currentPos > gamesYPos) {
+    // on mobile devices scroll to paperfighter
     if (dontScrollWhenOnGames) {
       overlay.style.display = 'flex';
       starPositionOverlay = document.documentElement.scrollTop;
@@ -83,6 +86,10 @@ function hasScrolled() {
       dontScrollWhenOnGames = false;
     }
     highlightHeaderButton(gamesButton);
+  }
+  else if (currentPos < gamesYPos)
+  {
+    highlightHeaderButton(personButton);
   }
 }
 

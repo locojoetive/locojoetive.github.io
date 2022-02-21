@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Roboto Mono';
-  src: url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot");
-  src: url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.woff") format("woff"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.ttf") format("truetype"), url("fonts/roboto_condensed_macroman/RobotoCondensed-Regular-webfont.svg#roboto_condensedregular") format("svg");
+  src: url("fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,6 +29,17 @@ header {
 }
 
 #header-button-container .header-button {
+  -webkit-transition: top 1s ease-in-out;
+  transition: top 1s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   float: left;
   border: none;
   outline: none;
@@ -39,13 +49,55 @@ header {
   transition: 0.2s ease-in-out;
 }
 
+#header-button-container .header-button .icon {
+  height: 32px;
+  width: 32px;
+  margin: 0 16px;
+}
+
+#header-button-container .header-button .icon img {
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+#header-button-container .header-button-active {
+  color: #1a1d45;
+  background-color: #ffffff;
+}
+
+#header-button-container #person-button.header-button-inactive > .icon > img {
+  background: url(/assets/icons/32px-house-white.png) no-repeat;
+}
+
+#header-button-container #games-button.header-button-inactive > .icon > img {
+  background: url(/assets/icons/32px-joypad-white.png) no-repeat;
+}
+
+#header-button-container #cv-button.header-button-inactive > .icon > img {
+  background: url(/assets/icons/32px-wrench-white.png) no-repeat;
+}
+
+#header-button-container .header-button-inactive {
+  color: #ffffff;
+  background-color: #1a1d45;
+}
+
+#header-button-container #person-button.header-button-active > .icon > img {
+  background: url(/assets/icons/32px-house-inverse.png) no-repeat;
+}
+
+#header-button-container #games-button.header-button-active > .icon > img {
+  background: url(/assets/icons/32px-joypad-inverse.png) no-repeat;
+}
+
+#header-button-container #cv-button.header-button-active > .icon > img {
+  background: url(/assets/icons/32px-wrench-inverse.png) no-repeat;
+}
+
 #header-button-container .header-button:hover {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
-}
-
-#games-container {
-  border-top-style: solid;
 }
 
 @media (max-width: 768px) {
@@ -68,7 +120,6 @@ header {
 
 #games-container > div {
   min-height: 90vh;
-  border-bottom-style: solid;
 }
 
 #games-container > div:last-child {
@@ -167,7 +218,6 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-top-style: solid;
 }
 
 @media (max-width: 768px) {
@@ -214,8 +264,6 @@ header {
 
 .person-experience-title {
   padding: 5vh 0;
-  border-top-style: solid;
-  border-bottom-style: solid;
   margin-top: 1rem;
   margin-bottom: 1rem;
   display: -webkit-box;
@@ -444,7 +492,7 @@ header {
           box-shadow: none;
 }
 
-#person {
+#person-container {
   min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -459,19 +507,19 @@ header {
 }
 
 @media (max-width: 768px) {
-  #person {
+  #person-container {
     padding: min(1vh, 1vw) 10vw 5vh;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
-  #person {
+  #person-container {
     padding: min(1vh, 1vw) 15vw 5vh;
   }
 }
 
 @media (min-width: 1367px) {
-  #person {
+  #person-container {
     padding: min(1vh, 1vw) 20vw 0vh;
   }
 }
@@ -659,7 +707,6 @@ main {
 #games,
 #cv {
   position: relative;
-  top: calc(-10vh - 2px);
 }
 
 /* Icons and containers */
@@ -700,6 +747,36 @@ main {
   .icon > img,
   .icon > a > img {
     width: 3rem;
+  }
+}
+
+.title {
+  padding: 5vh 0;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 2rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

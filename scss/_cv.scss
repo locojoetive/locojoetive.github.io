@@ -2,7 +2,6 @@
 {
     display: flex;
     flex-direction: column;
-    border-top-style: solid;
     @include media('<=tablet') { padding: #{'min(1vh, 1vw)'} 10vw 5vh;  }
     @include media('>tablet', '<=desktop') { padding: #{'min(1vh, 1vw)'} 15vw 5vh;  }
     @include media('>desktop') { padding: #{'min(1vh, 1vw)'} 20vw 0vh; }
@@ -33,8 +32,6 @@
 
 .person-experience-title {
     padding: 5vh 0;
-    border-top-style: solid;
-    border-bottom-style: solid;
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: flex;
