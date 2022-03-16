@@ -37,7 +37,7 @@ header {
             }
 
         }
-        animation: 1s ease 0s 1 fade-in;
+        animation: fadeIn 1s ease-in 0s 1 backwards;
     }
 
     .header-button-active {
@@ -77,17 +77,5 @@ header {
 
     .header-button:hover {
         transition: 0.2s ease-in-out;
-    }
-}
-
-@keyframes fade-in
-{
-    0%
-    {
-        opacity: 0;
-    }
-    100%
-    {
-        opacity: 1;
     }
 }

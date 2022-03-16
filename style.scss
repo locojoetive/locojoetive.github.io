@@ -7,7 +7,6 @@ $link-color: #e26e00;
 @import './scss/dist/_include_media.scss';
 @import './scss/_header.scss';
 @import './scss/_games.scss';
-@import './scss/_cv.scss';
 @import './scss/_overlay.scss';
 @import './scss/_person.scss';
 
@@ -77,4 +76,82 @@ main {
     display: flex;
     align-content: center;
     justify-items: center;
+}
+
+.not-visible
+{
+    opacity: 0;
+}
+
+.slide-in-from-below
+{
+    animation: slideInFromBelow 1s ease 0 1 1 1;
+}
+
+.slide-in-image
+{
+    @include media('<=desktop') {
+        animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+    }
+    @include media('>desktop') {
+        animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
+    }
+}
+
+.slide-in-text
+{
+    @include media('<=desktop') {
+        animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
+    }
+    @include media('>desktop') {
+        animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+    }
+}
+
+@keyframes fadeIn
+{
+    0%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes slideAndFadeInFromLeft
+{
+    0% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideAndFadeInFromRight
+{
+    0% {
+        transform: translateX(20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideAndFadeInFromBelow
+{
+    0% {
+        transform: translateY(40%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

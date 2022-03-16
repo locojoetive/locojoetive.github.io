@@ -46,7 +46,7 @@
         font-size: $medium-font;
         text-align: center;
     }
-    animation: 1s ease 0s 1 slideInFromRight;
+    animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
 }
 
 .about-contact {
@@ -81,7 +81,7 @@
         padding-left: #{"max(1vh, 1vw)"};
     }
     
-    animation: 1s ease 0s 1 slideInFromBelow;
+    animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
 }
 
 @keyframes slideInFromLeft
@@ -92,30 +92,6 @@
     }
     100% {
       transform: translateX(0);
-      opacity: 1;
-    }
-}
-
-@keyframes slideInFromRight
-{
-    0% {
-      transform: translateX(20%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-}
-
-@keyframes slideInFromBelow
-{
-    0% {
-      transform: translateY(40%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
       opacity: 1;
     }
 }

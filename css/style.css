@@ -3,6 +3,7 @@
   src: url("fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 header {
@@ -47,8 +48,8 @@ header {
   width: 50%;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
-  -webkit-animation: 1s ease 0s 1 fade-in;
-          animation: 1s ease 0s 1 fade-in;
+  -webkit-animation: fadeIn 1s ease-in 0s 1 backwards;
+          animation: fadeIn 1s ease-in 0s 1 backwards;
 }
 
 #header-button-container .header-button .icon {
@@ -100,24 +101,6 @@ header {
 #header-button-container .header-button:hover {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
-}
-
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @media (max-width: 768px) {
@@ -230,223 +213,6 @@ header {
   }
 }
 
-#cv-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media (max-width: 768px) {
-  #cv-container {
-    padding: 0 10vw 5vh;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1366px) {
-  #cv-container {
-    padding: 0 15vw 5vh;
-  }
-}
-
-@media (min-width: 1367px) {
-  #cv-container {
-    padding: 0 20vw 0vh;
-  }
-}
-
-.person-experience {
-  padding: 5vh 0;
-  border-bottom-style: solid;
-}
-
-.person-experience .date-and-place {
-  color: #797676;
-}
-
-.person-experience .description {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-}
-
-.person-experience.edu,
-.person-experience.job {
-  border-top-style: solid;
-}
-
-.person-experience.edu ~ .person-experience.edu,
-.person-experience.job ~ .person-experience.job {
-  border-top-style: none;
-}
-
-.person-experience-title:first-of-type {
-  border-top-style: solid;
-}
-
-.person-experience-title {
-  padding: 5vh 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-weight: bold;
-  font-style: italic;
-}
-
-@media (min-width: 1064px) {
-  .person-experience-title {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1063px) {
-  .person-experience-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .person-experience-title {
-    font-size: 2rem;
-  }
-}
-
-#person-skills-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-@media (min-width: 1064px) {
-  #person-skills-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  #person-skills-container .person-skills {
-    width: 50%;
-    -ms-grid-columns: min-content auto;
-        grid-template-columns: -webkit-min-content auto;
-        grid-template-columns: min-content auto;
-  }
-  #person-skills-container .person-skills:first-child {
-    border-style: solid solid solid none;
-    border-right-width: 1px;
-  }
-  #person-skills-container .person-skills:last-child {
-    border-style: solid none solid solid;
-    border-left-width: 1px;
-  }
-}
-
-@media (max-width: 1063px) {
-  #person-skills-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #person-skills-container .person-skills {
-    -ms-grid-columns: 1fr 2fr;
-        grid-template-columns: 1fr 2fr;
-  }
-}
-
-@media (max-width: 1063px) and (max-width: 646px) {
-  #person-skills-container .person-skills {
-    justify-items: space-between;
-  }
-}
-
-@media (max-width: 1063px) and (min-width: 647px) {
-  #person-skills-container .person-skills {
-    justify-items: center;
-  }
-}
-
-.person-skills:last-child {
-  border-bottom-style: solid;
-}
-
-.person-skills {
-  display: -ms-grid;
-  display: grid;
-  row-gap: 2vh;
-  padding: max(5vh, 5vw) 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-top-style: solid;
-}
-
-.person-skills > .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-@media (max-width: 646px) {
-  .person-skills > .icon {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: end;
-  }
-}
-
-@media (min-width: 647px) {
-  .person-skills > .icon {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
-.person-skill-name {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  padding: 0 max(1vh, 1vw);
-}
-
-.person-experience-institution {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media (max-width: 647px) {
-  .person-experience-institution .icon > img,
-  .person-experience-institution .icon > a > img {
-    padding: 0 max(3vh, 3vw);
-  }
-}
-
-@media (min-width: 648px) and (max-width: 768px) {
-  .person-experience-institution .icon > img,
-  .person-experience-institution .icon > a > img {
-    padding: max(2vh, 2vw);
-  }
-}
-
 #overlay {
   height: 100vh;
   width: 100vw;
@@ -554,8 +320,8 @@ header {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   padding: 2rem 0;
-  -webkit-animation: 1s ease 0s 1 slideInFromRight;
-          animation: 1s ease 0s 1 slideInFromRight;
+  -webkit-animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
+          animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
 }
 
 @media (max-width: 647px) {
@@ -628,8 +394,8 @@ header {
   display: -ms-grid;
   display: grid;
   padding: 2rem 0;
-  -webkit-animation: 1s ease 0s 1 slideInFromBelow;
-          animation: 1s ease 0s 1 slideInFromBelow;
+  -webkit-animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
+          animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
 }
 
 @media (max-width: 768px) {
@@ -689,58 +455,6 @@ header {
   100% {
     -webkit-transform: translateX(0);
             transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideInFromRight {
-  0% {
-    -webkit-transform: translateX(20%);
-            transform: translateX(20%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    -webkit-transform: translateX(20%);
-            transform: translateX(20%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideInFromBelow {
-  0% {
-    -webkit-transform: translateY(40%);
-            transform: translateY(40%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBelow {
-  0% {
-    -webkit-transform: translateY(40%);
-            transform: translateY(40%);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
     opacity: 1;
   }
 }
@@ -851,6 +565,139 @@ main {
   .icon > img,
   .icon > a > img {
     width: 3rem;
+  }
+}
+
+.not-visible {
+  opacity: 0;
+}
+
+.slide-in-from-below {
+  -webkit-animation: slideInFromBelow 1s ease 0 1 1 1;
+          animation: slideInFromBelow 1s ease 0 1 1 1;
+}
+
+@media (max-width: 1366px) {
+  .slide-in-image {
+    -webkit-animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+            animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+  }
+}
+
+@media (min-width: 1367px) {
+  .slide-in-image {
+    -webkit-animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
+            animation: slideAndFadeInFromBelow 1s ease-out 0s 1 backwards;
+  }
+}
+
+@media (max-width: 1366px) {
+  .slide-in-text {
+    -webkit-animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
+            animation: slideAndFadeInFromRight 1s ease-out 0s 1 backwards;
+  }
+}
+
+@media (min-width: 1367px) {
+  .slide-in-text {
+    -webkit-animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+            animation: slideAndFadeInFromLeft 1s ease-out 0s 1 backwards;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideAndFadeInFromLeft {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideAndFadeInFromLeft {
+  0% {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideAndFadeInFromRight {
+  0% {
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideAndFadeInFromRight {
+  0% {
+    -webkit-transform: translateX(20%);
+            transform: translateX(20%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideAndFadeInFromBelow {
+  0% {
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideAndFadeInFromBelow {
+  0% {
+    -webkit-transform: translateY(40%);
+            transform: translateY(40%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=style.css.map */

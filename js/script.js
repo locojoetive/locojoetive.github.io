@@ -1,13 +1,11 @@
 // content container
 const personContainer = document.getElementById('person-container');
 const gamesContainer = document.getElementById('games');
-const cvContainer = document.getElementById('cv');
 
 
 // header buttons
 const personButton = document.getElementById('person-button');
 const gamesButton = document.getElementById('games-button');
-const cvButton = document.getElementById('cv-button');
 
 // header
 const headerElement = document.getElementsByTagName('HEADER')[0];
@@ -64,10 +62,7 @@ function hasScrolled() {
   const currentPos = document.documentElement.scrollTop;
   const halfWindowHeight = 0.5 * window.innerHeight;
   const gamesYPos = gamesContainer.offsetTop - halfWindowHeight;
-  const cvYPos = cvContainer.offsetTop - halfWindowHeight;
-  if (currentPos > cvYPos)
-    highlightHeaderButton(cvButton);
-  else if (currentPos > gamesYPos) {
+  if (currentPos > gamesYPos) {
     // on mobile devices scroll to paperfighter
     if (dontScrollWhenOnGames) {
       overlay.style.display = 'flex';
