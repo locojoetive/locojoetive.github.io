@@ -1,10 +1,3 @@
-// start here
-const positions = [
-  -1, 0,
-  0, -1,
-  1, 1,
-];
-
 main();
 
 function main() {
@@ -18,48 +11,67 @@ function main() {
         return;
     }
 
+    // define shader sources
+    const vertexShaderSource = document.querySelector("#vertex-shader-2d").text;
+    const fragmentShaderSource = document.querySelector("#fragment-shader-2d").text;
+
+    // create shaders and program
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const program = createProgram(gl, vertexShader, fragmentShader);
+
     // resize the canvas to match the display size
     if (resizeCanvasToDisplaySize(canvas)) {
         // Notify the shader program that the canvas size has changed
         gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     }
 
-    const vertexShaderSource = document.querySelector("#vertex-shader-2d").text;
-    const fragmentShaderSource = document.querySelector("#fragment-shader-2d").text;
-     
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    const program = createProgram(gl, vertexShader, fragmentShader);
-    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
-
-    // set clear color to black, fully opaque
-    gl.clearColor(0.0, 0.0, 0.0, 0.0);
-    // clear the color buffer with specified clear color
+    // clear the canvas
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
-    gl.enableVertexAttribArray(positionAttributeLocation);
+
+    // get the location of the attribute in the shader program
+    const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    // create a buffer to hold the vertex positions
+    const positionBuffer = gl.createBuffer();
+    // bind the buffer to the ARRAY_BUFFER target
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    // tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-    
-    // 2 components per iteration
-    const size = 2;
-    // the data is 32bit floats
-    const type = gl.FLOAT;
-    // don't normalize the data
-    const normalize = false;
-    // 0 = move forward size * sizeof(type) each iteration to get the next position
-    const stride = 0;
-    // start at the beginning of the buffer
-    const offset = 0;
-    gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+    // define the positions of the triangle vertices
+    const positions = [
+        -1, 0,
+        0, -1,
+        1, 1,
+    ];
+    // create a buffer and fill it with the positions
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+    // bind the position buffer to the attribute
+    gl.enableVertexAttribArray(positionAttributeLocation);
+
+    // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+    gl.vertexAttribPointer(
+        positionAttributeLocation,
+        // size:
+        // 2 components per iteration
+        2,
+        // type:
+        // the data is 32bit floats
+        gl.FLOAT,
+        // normalize:
+        // don't normalize the data
+        false,
+        // stride:
+        // 0 = move forward size * sizeof(type) each iteration to get the next position
+        0,
+        // offset:
+        // start at the beginning of the buffer
+        0
+    );
     
     const primitiveType = gl.TRIANGLES;
-    const arraysOffset = 0;
+    const offset = 0;
     const count = 3;
-    gl.drawArrays(primitiveType, arraysOffset, count);
+    gl.drawArrays(primitiveType, offset, count);
 }
 
 function createShader(gl, type, source) {

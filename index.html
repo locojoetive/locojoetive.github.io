@@ -9,12 +9,11 @@
 </head>
 
 <body>
-    <canvas id="gl-canvas" width="800" height="600"></canvas>
+    <canvas id="gl-canvas"></canvas>
     <script id="vertex-shader-2d" type="notjs">    
         // an attribute will receive data from a buffer
         attribute vec4 a_position;
         
-        // all shaders have a main function
         void main() {
             // gl_Position is a special variable a vertex shader
             // is responsible for setting
