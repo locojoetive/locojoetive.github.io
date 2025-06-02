@@ -3,7 +3,12 @@ main();
 function main() {
     const canvas = document.querySelector("#gl-canvas");
     // initialize the WebGL context
-    const gl = canvas.getContext("webgl");
+    const gl = canvas.getContext(
+        "webgl",
+        {
+            antialias: false
+        }
+    );
 
     // check if WebGL is available
     if (!gl) {
@@ -11,6 +16,7 @@ function main() {
         return;
     }
 
+    
     // define shader sources
     const vertexShaderSource = document.querySelector("#vertex-shader-2d").text;
     const fragmentShaderSource = document.querySelector("#fragment-shader-2d").text;
@@ -21,10 +27,12 @@ function main() {
     const program = createProgram(gl, vertexShader, fragmentShader);
 
     // resize the canvas to match the display size
+    /*
     if (resizeCanvasToDisplaySize(canvas)) {
         // Notify the shader program that the canvas size has changed
         gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     }
+    */
 
     // clear the canvas
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
