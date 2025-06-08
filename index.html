@@ -5,282 +5,269 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>10 Second Tap Challenge</title>
     <style>
-        /* Basic Setup & Mobile Gesture Prevention */
-        html, body {
-            height: 100%;
-            width: 100%;
+        /* Prevents default browser actions like text selection or callouts on tap */
+        body, html {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+/Edge */
-            user-select: none; /* Standard */
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation; /* Disables double-tap to zoom, etc. */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        /* Main Game Container */
+        /* Main container for the game interface */
         #game-container {
             display: flex;
+            flex-direction: column;
             width: 100%;
             height: 100%;
             position: relative;
         }
 
-        /* Player Areas */
+        /* Player screen areas */
         .player-area {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 24px;
             color: white;
-            transition: background-color 0.2s ease;
-            position: relative; /* For pseudo-elements */
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        #player1 {
-            background-color: #3498db; /* Blue */
+        #player-blue { background-color: #007bff; }
+        #player-red { background-color: #dc3545; }
+
+        /* Styling for player areas after they've tapped */
+        .player-area.waiting {
+            background-color: #343a40; /* Dark gray to indicate finished */
         }
 
-        #player2 {
-            background-color: #e74c3c; /* Red */
-        }
-
-        /* Visual feedback for when a player has tapped */
-        .player-area.waiting::before {
-            content: 'Ready...';
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .player-area.done {
-            background-color: #2c3e50; /* Darker color when done */
-        }
-
-        .player-area.done::before {
-            content: 'Stopped!';
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-        }
-
-
-        /* Central Start Button */
-        #start-button {
+        /* Central 'Start' button and 'Next Round' button styling */
+        .game-button {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 20px 40px;
-            font-size: 1.8rem;
+            font-size: 28px;
             font-weight: bold;
-            cursor: pointer;
-            border: 3px solid white;
-            background-color: #2ecc71; /* Green */
-            color: white;
+            color: #333;
+            background-color: #fff;
+            border: 4px solid #333;
             border-radius: 15px;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        /* Results Overlay */
-        #results-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 20;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        #results-overlay h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        #results-overlay p {
-            font-size: 1.2rem;
-            margin: 8px 0;
-        }
-
-        #winner-declaration {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #f1c40f; /* Yellow for winner */
-        }
-        
-        #next-round-button {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 1.5rem;
             cursor: pointer;
-            border: 2px solid white;
-            background-color: #9b59b6; /* Purple */
-            color: white;
-            border-radius: 10px;
+            z-index: 10;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            text-align: center;
         }
 
-        /* Utility class to hide elements */
+        /* Hides elements when not active */
         .hidden {
-            display: none !important;
+            display: none;
         }
+
+        /* Container for displaying results */
+        #results-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.25);
+            text-align: center;
+            z-index: 5;
+            width: 85%;
+            max-width: 400px;
+        }
+
+        #results-container h2 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #333;
+        }
+
+        #results-container p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        /* Specific styling for the winner announcement */
+        #winner-declaration {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Styling for player result details */
+        .player-result {
+            margin: 15px 0;
+        }
+
+        .player-result span {
+            font-weight: bold;
+        }
+        
+        #blue-winner { color: #007bff; }
+        #red-winner { color: #dc3545; }
+        #tie-result { color: #6c757d; }
     </style>
 </head>
 <body>
 
     <div id="game-container">
-        <div class="player-area" id="player1"></div>
-        
-        <div class="player-area" id="player2"></div>
-        
-        <button id="start-button">Start</button>
-
-        <div id="results-overlay" class="hidden">
-            <h2>Results</h2>
-            <p id="p1-result"></p>
-            <p id="p2-result"></p>
-            <p id="winner-declaration"></p>
-            <button id="next-round-button">Next Round</button>
+        <div id="player-blue" class="player-area">
+            <div id="blue-result-display" class="result-display"></div>
         </div>
+        <div id="player-red" class="player-area">
+            <div id="red-result-display" class="result-display"></div>
+        </div>
+
+        <button id="start-button" class="game-button">Start</button>
+
+        <div id="results-container" class="hidden">
+            <h2>Results</h2>
+            <div id="blue-player-result" class="player-result"></div>
+            <div id="red-player-result" class="player-result"></div>
+            <p id="winner-declaration"></p>
+        </div>
+        
+        <button id="next-round-button" class="game-button hidden">Next Round</button>
     </div>
 
     <script>
-        // DOM Element References
-        const startButton = document.getElementById('start-button');
-        const player1Area = document.getElementById('player1');
-        const player2Area = document.getElementById('player2');
-        const resultsOverlay = document.getElementById('results-overlay');
-        const p1ResultDisplay = document.getElementById('p1-result');
-        const p2ResultDisplay = document.getElementById('p2-result');
-        const winnerDeclaration = document.getElementById('winner-declaration');
-        const nextRoundButton = document.getElementById('next-round-button');
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Element References
+            const startButton = document.getElementById('start-button');
+            const nextRoundButton = document.getElementById('next-round-button');
+            const bluePlayerArea = document.getElementById('player-blue');
+            const redPlayerArea = document.getElementById('player-red');
+            const resultsContainer = document.getElementById('results-container');
+            const bluePlayerResultEl = document.getElementById('blue-player-result');
+            const redPlayerResultEl = document.getElementById('red-player-result');
+            const winnerDeclarationEl = document.getElementById('winner-declaration');
 
-        // Game State
-        let gameState = {
-            startTime: null,
-            p1Time: null,
-            p2Time: null,
-            gameRunning: false,
-            targetTime: 10000 // 10 seconds in milliseconds
-        };
+            // Game State
+            let gameInProgress = false;
+            let startTime = 0;
+            let playerTimes = { blue: null, red: null };
+            const TARGET_TIME = 10000; // 10 seconds in milliseconds
 
-        // --- Event Listeners ---
+            // --- EVENT LISTENERS ---
 
-        // Start the game
-        startButton.addEventListener('click', startGame);
+            // Start the game when the start button is clicked
+            startButton.addEventListener('click', startGame);
 
-        // Player 1 stops their timer
-        player1Area.addEventListener('touchend', () => handlePlayerTap(1));
-
-        // Player 2 stops their timer
-        player2Area.addEventListener('touchend', () => handlePlayerTap(2));
-        
-        // Listen for clicks as a fallback for desktop testing
-        player1Area.addEventListener('click', () => handlePlayerTap(1));
-        player2Area.addEventListener('click', () => handlePlayerTap(2));
-
-        // Start the next round
-        nextRoundButton.addEventListener('click', resetGame);
-
-        // --- Game Logic Functions ---
-
-        /**
-         * Starts the timer and sets up the game state for a new round.
-         */
-        function startGame() {
-            // Prevent starting if already running
-            if (gameState.gameRunning) return;
-
-            gameState.gameRunning = true;
-            gameState.startTime = performance.now();
+            // Set up tap listeners for both player areas
+            bluePlayerArea.addEventListener('touchend', () => handlePlayerTap('blue'));
+            redPlayerArea.addEventListener('touchend', () => handlePlayerTap('red'));
             
-            startButton.classList.add('hidden');
-            player1Area.classList.add('waiting');
-            player2Area.classList.add('waiting');
-        }
+            // Allow mouse clicks for desktop testing
+            bluePlayerArea.addEventListener('click', () => handlePlayerTap('blue'));
+            redPlayerArea.addEventListener('click', () => handlePlayerTap('red'));
 
-        /**
-         * Handles a player tapping their screen area.
-         * @param {number} playerNumber - The player who tapped (1 or 2).
-         */
-        function handlePlayerTap(playerNumber) {
-            // Only register tap if the game is running
-            if (!gameState.gameRunning) return;
+            // Reset the game for the next round
+            nextRoundButton.addEventListener('click', resetGame);
 
-            const tapTime = performance.now();
+            // --- GAME LOGIC FUNCTIONS ---
 
-            if (playerNumber === 1 && gameState.p1Time === null) {
-                gameState.p1Time = tapTime - gameState.startTime;
-                player1Area.classList.replace('waiting', 'done');
-            } else if (playerNumber === 2 && gameState.p2Time === null) {
-                gameState.p2Time = tapTime - gameState.startTime;
-                player2Area.classList.replace('waiting', 'done');
+            /**
+             * Initializes the game, hides the start button, and records the start time.
+             */
+            function startGame() {
+                if (gameInProgress) return;
+
+                gameInProgress = true;
+                playerTimes = { blue: null, red: null };
+                startTime = performance.now();
+                
+                startButton.classList.add('hidden');
+                resultsContainer.classList.add('hidden');
+                nextRoundButton.classList.add('hidden');
+
+                // Reset visual state
+                bluePlayerArea.classList.remove('waiting');
+                redPlayerArea.classList.remove('waiting');
             }
 
-            // Check if both players have finished
-            if (gameState.p1Time !== null && gameState.p2Time !== null) {
-                endGame();
-            }
-        }
+            /**
+             * Handles a player tapping their area.
+             * @param {('blue'|'red')} player - The player who tapped.
+             */
+            function handlePlayerTap(player) {
+                // Ignore taps if the game isn't running or the player has already tapped
+                if (!gameInProgress || playerTimes[player] !== null) {
+                    return;
+                }
 
-        /**
-         * Calculates results and displays the winner overlay.
-         */
-        function endGame() {
-            gameState.gameRunning = false;
-            
-            const p1Seconds = (gameState.p1Time / 1000).toFixed(3);
-            const p2Seconds = (gameState.p2Time / 1000).toFixed(3);
-            
-            const p1Diff = Math.abs(p1Seconds - (gameState.targetTime / 1000));
-            const p2Diff = Math.abs(p2Seconds - (gameState.targetTime / 1000));
+                const endTime = performance.now();
+                playerTimes[player] = endTime - startTime;
 
-            // Update result text
-            p1ResultDisplay.textContent = `Player 1: ${p1Seconds}s (Difference: ${p1Diff.toFixed(3)}s)`;
-            p2ResultDisplay.textContent = `Player 2: ${p2Seconds}s (Difference: ${p2Diff.toFixed(3)}s)`;
+                // Visually indicate that the player has finished
+                document.getElementById(`player-${player}`).classList.add('waiting');
 
-            // Determine and display the winner
-            if (p1Diff < p2Diff) {
-                winnerDeclaration.textContent = 'Player 1 Wins! 🏆';
-            } else if (p2Diff < p1Diff) {
-                winnerDeclaration.textContent = 'Player 2 Wins! 🏆';
-            } else {
-                winnerDeclaration.textContent = "It's a Draw! 🤝";
+                // Check if both players have finished to show results
+                if (playerTimes.blue !== null && playerTimes.red !== null) {
+                    endGame();
+                }
             }
             
-            resultsOverlay.classList.remove('hidden');
-        }
+            /**
+             * Calculates results, determines the winner, and displays the outcome.
+             */
+            function endGame() {
+                gameInProgress = false;
 
-        /**
-         * Resets the game state and UI for a new round.
-         */
-        function resetGame() {
-            // Reset state object
-            gameState.startTime = null;
-            gameState.p1Time = null;
-            gameState.p2Time = null;
-            gameState.gameRunning = false;
+                const blueTime = playerTimes.blue / 1000; // Convert to seconds
+                const redTime = playerTimes.red / 1000;
+                
+                const blueDiff = Math.abs(blueTime - (TARGET_TIME / 1000));
+                const redDiff = Math.abs(redTime - (TARGET_TIME / 1000));
 
-            // Reset UI elements
-            resultsOverlay.classList.add('hidden');
-            startButton.classList.remove('hidden');
-            
-            player1Area.classList.remove('waiting', 'done');
-            player2Area.classList.remove('waiting', 'done');
-        }
+                // Populate result elements
+                bluePlayerResultEl.innerHTML = `Blue: <span>${blueTime.toFixed(3)}s</span> (Difference: ${blueDiff.toFixed(3)}s)`;
+                redPlayerResultEl.innerHTML = `Red: <span>${redTime.toFixed(3)}s</span> (Difference: ${redDiff.toFixed(3)}s)`;
+                
+                // Determine and display the winner
+                if (blueDiff < redDiff) {
+                    winnerDeclarationEl.innerHTML = '🎉 <span id="blue-winner">Blue Wins!</span>';
+                } else if (redDiff < blueDiff) {
+                    winnerDeclarationEl.innerHTML = '🎉 <span id="red-winner">Red Wins!</span>';
+                } else {
+                    winnerDeclarationEl.innerHTML = '<span id="tie-result">It\'s a Tie!</span>';
+                }
 
+                // Show the results and the 'Next Round' button
+                resultsContainer.classList.remove('hidden');
+                nextRoundButton.classList.remove('hidden');
+            }
+
+            /**
+             * Resets the game to its initial state for a new round.
+             */
+            function resetGame() {
+                nextRoundButton.classList.add('hidden');
+                resultsContainer.classList.add('hidden');
+                startButton.classList.remove('hidden');
+
+                bluePlayerArea.classList.remove('waiting');
+                redPlayerArea.classList.remove('waiting');
+
+                playerTimes = { blue: null, red: null };
+                gameInProgress = false;
+            }
+        });
     </script>
 </body>
 </html>
