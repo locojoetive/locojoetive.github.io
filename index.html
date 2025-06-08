@@ -5,314 +5,282 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>10 Second Tap Challenge</title>
     <style>
-        /* --- Basic Setup & Typography --- */
-        :root {
-            --p1-color: #4a90e2;
-            --p2-color: #e24a4a;
-            --neutral-color: #f0f0f0;
-            --dark-color: #333;
-            --winner-color: #4CAF50;
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        /* Basic Setup & Mobile Gesture Prevention */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+/Edge */
+            user-select: none; /* Standard */
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation; /* Disables double-tap to zoom, etc. */
         }
 
-        body, html {
-            margin: 0;
-            padding: 0;
+        /* Main Game Container */
+        #game-container {
+            display: flex;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            font-family: var(--font-family);
+            position: relative;
         }
 
-        /* --- Main Layout --- */
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        /* --- Player Areas --- */
+        /* Player Areas */
         .player-area {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 2rem;
             color: white;
-            position: relative;
-            transition: background-color 0.3s ease;
-            -webkit-tap-highlight-color: transparent; /* Disable tap highlight on iOS */
-            user-select: none; /* Disable text selection */
+            transition: background-color 0.2s ease;
+            position: relative; /* For pseudo-elements */
         }
 
-        #player1-area {
-            background-color: var(--p1-color);
+        #player1 {
+            background-color: #3498db; /* Blue */
         }
 
-        #player2-area {
-            background-color: var(--p2-color);
-            transform: rotate(180deg); /* Flip Player 2's view */
+        #player2 {
+            background-color: #e74c3c; /* Red */
         }
 
-        .player-area .content {
-             text-align: center;
-        }
-
-        .player-area h2 {
-            font-size: 1.5em;
-            margin: 0 0 20px 0;
-        }
-
-        /* --- Buttons --- */
-        .start-button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: var(--dark-color);
-            background-color: var(--neutral-color);
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .start-button:active {
-            background-color: #ddd;
-        }
-
-        /* --- Game State Messages --- */
-        .message {
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* --- Results Modal --- */
-        #results-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-        }
-
-        #results-content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            width: 85%;
-            max-width: 400px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        #results-content h2 {
-            margin-top: 0;
-            font-size: 2em;
-            color: var(--dark-color);
+        /* Visual feedback for when a player has tapped */
+        .player-area.waiting::before {
+            content: 'Ready...';
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
         }
         
-        #results-text p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 10px 0;
+        .player-area.done {
+            background-color: #2c3e50; /* Darker color when done */
         }
 
-        #winner-text {
-            font-size: 1.5em;
+        .player-area.done::before {
+            content: 'Stopped!';
+            font-size: 1.5rem;
             font-weight: bold;
-            color: var(--winner-color);
-            margin: 20px 0;
+            color: white;
         }
 
-        #play-again-button {
-            margin-top: 20px;
-            padding: 15px 40px;
-            font-size: 1.2em;
+
+        /* Central Start Button */
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            font-size: 1.8rem;
             font-weight: bold;
             cursor: pointer;
-            border: none;
-            border-radius: 10px;
-            background-color: var(--p1-color);
+            border: 3px solid white;
+            background-color: #2ecc71; /* Green */
             color: white;
+            border-radius: 15px;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Results Overlay */
+        #results-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 20;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #results-overlay h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #results-overlay p {
+            font-size: 1.2rem;
+            margin: 8px 0;
+        }
+
+        #winner-declaration {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #f1c40f; /* Yellow for winner */
+        }
+        
+        #next-round-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: 2px solid white;
+            background-color: #9b59b6; /* Purple */
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Utility class to hide elements */
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
 
-    <div class="game-container">
-        <div class="player-area" id="player1-area">
-            <div class="content">
-                <h2 id="p1-title">Player 1</h2>
-                <button class="start-button" id="start-button-1">Start</button>
-                <p class="message hidden" id="p1-message">Tap when ready!</p>
-            </div>
-        </div>
+    <div id="game-container">
+        <div class="player-area" id="player1"></div>
+        
+        <div class="player-area" id="player2"></div>
+        
+        <button id="start-button">Start</button>
 
-        <div class="player-area" id="player2-area">
-            <div class="content">
-                 <h2 id="p2-title">Player 2</h2>
-                 <button class="start-button" id="start-button-2">Start</button>
-                 <p class="message hidden" id="p2-message">Tap when ready!</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="results-modal" class="hidden">
-        <div id="results-content">
-            <h2 id="winner-declaration"></h2>
-            <p id="p1-result-text"></p>
-            <p id="p2-result-text"></p>
-            <button id="play-again-button">Play Again</button>
+        <div id="results-overlay" class="hidden">
+            <h2>Results</h2>
+            <p id="p1-result"></p>
+            <p id="p2-result"></p>
+            <p id="winner-declaration"></p>
+            <button id="next-round-button">Next Round</button>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- DOM Elements ---
-            const player1Area = document.getElementById('player1-area');
-            const player2Area = document.getElementById('player2-area');
-            const startButton1 = document.getElementById('start-button-1');
-            const startButton2 = document.getElementById('start-button-2');
-            const p1Message = document.getElementById('p1-message');
-            const p2Message = document.getElementById('p2-message');
-            const p1Title = document.getElementById('p1-title');
-            const p2Title = document.getElementById('p2-title');
+        // DOM Element References
+        const startButton = document.getElementById('start-button');
+        const player1Area = document.getElementById('player1');
+        const player2Area = document.getElementById('player2');
+        const resultsOverlay = document.getElementById('results-overlay');
+        const p1ResultDisplay = document.getElementById('p1-result');
+        const p2ResultDisplay = document.getElementById('p2-result');
+        const winnerDeclaration = document.getElementById('winner-declaration');
+        const nextRoundButton = document.getElementById('next-round-button');
 
-            const resultsModal = document.getElementById('results-modal');
-            const winnerDeclaration = document.getElementById('winner-declaration');
-            const p1ResultText = document.getElementById('p1-result-text');
-            const p2ResultText = document.getElementById('p2-result-text');
-            const playAgainButton = document.getElementById('play-again-button');
+        // Game State
+        let gameState = {
+            startTime: null,
+            p1Time: null,
+            p2Time: null,
+            gameRunning: false,
+            targetTime: 10000 // 10 seconds in milliseconds
+        };
 
-            // --- Game State ---
-            let gameActive = false;
-            let startTime = 0;
-            let player1Time = null;
-            let player2Time = null;
-            const TARGET_TIME_MS = 10000;
+        // --- Event Listeners ---
 
-            // --- Game Logic ---
-            const startGame = () => {
-                if (gameActive) return;
-                gameActive = true;
+        // Start the game
+        startButton.addEventListener('click', startGame);
 
-                // Hide start buttons and show messages
-                startButton1.classList.add('hidden');
-                startButton2.classList.add('hidden');
-                p1Message.classList.remove('hidden');
-                p2Message.classList.remove('hidden');
-                p1Message.textContent = "TAP!";
-                p2Message.textContent = "TAP!";
+        // Player 1 stops their timer
+        player1Area.addEventListener('touchend', () => handlePlayerTap(1));
 
+        // Player 2 stops their timer
+        player2Area.addEventListener('touchend', () => handlePlayerTap(2));
+        
+        // Listen for clicks as a fallback for desktop testing
+        player1Area.addEventListener('click', () => handlePlayerTap(1));
+        player2Area.addEventListener('click', () => handlePlayerTap(2));
 
-                // Record start time with high precision
-                startTime = performance.now();
-            };
+        // Start the next round
+        nextRoundButton.addEventListener('click', resetGame);
 
-            const recordTime = (player) => {
-                if (!gameActive) return;
+        // --- Game Logic Functions ---
 
-                const endTime = performance.now();
-                const elapsedTime = (endTime - startTime);
+        /**
+         * Starts the timer and sets up the game state for a new round.
+         */
+        function startGame() {
+            // Prevent starting if already running
+            if (gameState.gameRunning) return;
 
-                if (player === 1 && player1Time === null) {
-                    player1Time = elapsedTime;
-                    p1Message.textContent = "Waiting...";
-                    player1Area.style.backgroundColor = '#3a7bc8'; // Darken color
-                } else if (player === 2 && player2Time === null) {
-                    player2Time = elapsedTime;
-                    p2Message.textContent = "Waiting...";
-                    player2Area.style.backgroundColor = '#c83a3a'; // Darken color
-                }
-                
-                // Check if both players have tapped
-                if (player1Time !== null && player2Time !== null) {
-                    gameActive = false;
-                    showResults();
-                }
-            };
-
-            const showResults = () => {
-                const p1Seconds = (player1Time / 1000).toFixed(3);
-                const p2Seconds = (player2Time / 1000).toFixed(3);
-
-                const p1Diff = Math.abs(player1Time - TARGET_TIME_MS);
-                const p2Diff = Math.abs(player2Time - TARGET_TIME_MS);
-                
-                const p1DiffSeconds = (p1Diff / 1000).toFixed(3);
-                const p2DiffSeconds = (p2Diff / 1000).toFixed(3);
-
-                // Update results text
-                p1ResultText.innerHTML = `<b>Player 1:</b> ${p1Seconds}s (Difference: ${p1DiffSeconds}s)`;
-                p2ResultText.innerHTML = `<b>Player 2:</b> ${p2Seconds}s (Difference: ${p2DiffSeconds}s)`;
-
-                // Determine winner
-                if (p1Diff < p2Diff) {
-                    winnerDeclaration.textContent = 'Player 1 Wins! 🎉';
-                } else if (p2Diff < p1Diff) {
-                    winnerDeclaration.textContent = 'Player 2 Wins! 🎉';
-                } else {
-                    winnerDeclaration.textContent = "It's a Tie! 😲";
-                }
-
-                // Show the modal
-                resultsModal.classList.remove('hidden');
-            };
-
-            const resetGame = () => {
-                gameActive = false;
-                startTime = 0;
-                player1Time = null;
-                player2Time = null;
-
-                // Hide results and messages
-                resultsModal.classList.add('hidden');
-                p1Message.classList.add('hidden');
-                p2Message.classList.add('hidden');
-                
-                // Show start buttons
-                startButton1.classList.remove('hidden');
-                startButton2.classList.remove('hidden');
-
-                // Reset titles and background colors
-                player1Area.style.backgroundColor = 'var(--p1-color)';
-                player2Area.style.backgroundColor = 'var(--p2-color)';
-            };
-
-            // --- Event Listeners ---
+            gameState.gameRunning = true;
+            gameState.startTime = performance.now();
             
-            // Use pointerdown for faster, more reliable taps on mobile
-            // It avoids the 300ms delay of 'click' and helps prevent double-tap zoom
-            player1Area.addEventListener('pointerdown', () => recordTime(1));
-            player2Area.addEventListener('pointerdown', () => recordTime(2));
+            startButton.classList.add('hidden');
+            player1Area.classList.add('waiting');
+            player2Area.classList.add('waiting');
+        }
 
-            startButton1.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent the tap from registering on the area behind it
-                startGame();
-            });
-            startButton2.addEventListener('click', (e) => {
-                e.stopPropagation();
-                startGame();
-            });
+        /**
+         * Handles a player tapping their screen area.
+         * @param {number} playerNumber - The player who tapped (1 or 2).
+         */
+        function handlePlayerTap(playerNumber) {
+            // Only register tap if the game is running
+            if (!gameState.gameRunning) return;
 
-            playAgainButton.addEventListener('click', resetGame);
+            const tapTime = performance.now();
+
+            if (playerNumber === 1 && gameState.p1Time === null) {
+                gameState.p1Time = tapTime - gameState.startTime;
+                player1Area.classList.replace('waiting', 'done');
+            } else if (playerNumber === 2 && gameState.p2Time === null) {
+                gameState.p2Time = tapTime - gameState.startTime;
+                player2Area.classList.replace('waiting', 'done');
+            }
+
+            // Check if both players have finished
+            if (gameState.p1Time !== null && gameState.p2Time !== null) {
+                endGame();
+            }
+        }
+
+        /**
+         * Calculates results and displays the winner overlay.
+         */
+        function endGame() {
+            gameState.gameRunning = false;
             
-            // Prevent context menu on long press
-            window.oncontextmenu = (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                return false;
-            };
-        });
+            const p1Seconds = (gameState.p1Time / 1000).toFixed(3);
+            const p2Seconds = (gameState.p2Time / 1000).toFixed(3);
+            
+            const p1Diff = Math.abs(p1Seconds - (gameState.targetTime / 1000));
+            const p2Diff = Math.abs(p2Seconds - (gameState.targetTime / 1000));
+
+            // Update result text
+            p1ResultDisplay.textContent = `Player 1: ${p1Seconds}s (Difference: ${p1Diff.toFixed(3)}s)`;
+            p2ResultDisplay.textContent = `Player 2: ${p2Seconds}s (Difference: ${p2Diff.toFixed(3)}s)`;
+
+            // Determine and display the winner
+            if (p1Diff < p2Diff) {
+                winnerDeclaration.textContent = 'Player 1 Wins! 🏆';
+            } else if (p2Diff < p1Diff) {
+                winnerDeclaration.textContent = 'Player 2 Wins! 🏆';
+            } else {
+                winnerDeclaration.textContent = "It's a Draw! 🤝";
+            }
+            
+            resultsOverlay.classList.remove('hidden');
+        }
+
+        /**
+         * Resets the game state and UI for a new round.
+         */
+        function resetGame() {
+            // Reset state object
+            gameState.startTime = null;
+            gameState.p1Time = null;
+            gameState.p2Time = null;
+            gameState.gameRunning = false;
+
+            // Reset UI elements
+            resultsOverlay.classList.add('hidden');
+            startButton.classList.remove('hidden');
+            
+            player1Area.classList.remove('waiting', 'done');
+            player2Area.classList.remove('waiting', 'done');
+        }
+
     </script>
 </body>
 </html>
