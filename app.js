@@ -179,7 +179,7 @@ class ZeitgeistGame {
             player.endTime = performance.now();
             player.result = this.calculateResult(player);
             
-            this.updatePlayerArea(playerArea, 'finished', `${player.result.difference.toFixed(2)}s`);
+            this.updatePlayerArea(playerArea, 'finished', `${player.result.difference.toFixed(4)}s`);
             this.addVisualFeedback(playerArea);
             
             // Prüfen ob alle Spieler fertig sind
@@ -258,7 +258,7 @@ class ZeitgeistGame {
             
             const resultTime = document.createElement('div');
             resultTime.className = `result-time ${player.result.quality}`;
-            resultTime.textContent = `${player.result.difference.toFixed(2)}s`;
+            resultTime.textContent = `${player.result.difference.toFixed(4)}s`;
             
             resultItem.appendChild(playerName);
             resultItem.appendChild(resultTime);
