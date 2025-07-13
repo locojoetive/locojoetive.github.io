@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zeitgeist - Ein kompetitives Zeit-Schätzspiel für Einzel- und Mehrspieler">
+    <meta name="theme-color" content="#2563eb">
+    <title>Zeitgeist - Zeit-Schätzspiel</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Hauptmenü -->
+        <div id="main-menu" class="screen active">
+            <div class="container">
+                <h1 class="title">⏰ Zeitgeist</h1>
+                <p class="subtitle">Schätze die Zeit - Teste dein Gefühl!</p>
+                
+                <div class="game-modes">
+                    <button class="mode-btn" data-mode="single" data-players="1" data-duration="10">
+                        <span class="mode-icon">👤</span>
+                        <span class="mode-title">Einzelspieler</span>
+                        <span class="mode-desc">10 Sekunden schätzen</span>
+                    </button>
+                    
+                    <button class="mode-btn" data-mode="duel" data-players="2" data-duration="10">
+                        <span class="mode-icon">⚔️</span>
+                        <span class="mode-title">Duell</span>
+                        <span class="mode-desc">2 Spieler - 10 Sekunden</span>
+                    </button>
+                    
+                    <button class="mode-btn" data-mode="group" data-players="3" data-duration="10">
+                        <span class="mode-icon">👥</span>
+                        <span class="mode-title">Gruppe</span>
+                        <span class="mode-desc">3 Spieler - 10 Sekunden</span>
+                    </button>
+                </div>
+                
+                <div class="instructions">
+                    <h3>So funktioniert's:</h3>
+                    <ol>
+                        <li>Tippe auf deinen Bereich zum Starten</li>
+                        <li>Die Zeit wird versteckt</li>
+                        <li>Tippe erneut wenn du glaubst, die Zeit ist um</li>
+                        <li>Sieh deine Genauigkeit!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spielbereich -->
+        <div id="game-screen" class="screen">
+            <div id="game-container">
+                <!-- Spieler-Bereiche werden dynamisch erstellt -->
+            </div>
+            
+            <div id="game-info">
+                <div id="target-time">Ziel: <span id="target-display">10</span>s</div>
+                <div id="game-status">Bereit zum Start</div>
+            </div>
+        </div>
+
+        <!-- Ergebnisanzeige -->
+        <div id="results-screen" class="screen">
+            <div class="container">
+                <h2>🏁 Ergebnisse</h2>
+                <div id="results-container">
+                    <!-- Ergebnisse werden dynamisch erstellt -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="play-again-btn" class="btn primary">Nochmal spielen</button>
+                    <button id="menu-btn" class="btn secondary">Hauptmenü</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script src="app.js"></script>
+    <script>
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html> 
